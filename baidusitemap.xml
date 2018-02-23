@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>http://cookily.github.io/2018/02/23/hello-world/</loc>
+    <lastmod>2018-02-23T08:52:49.384Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2018-02-23T08:52:49.383Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://cookily.github.io/2018/02/23/new/</loc>
     <lastmod>2018-02-23T08:24:43.585Z</lastmod>
     <data>
@@ -36,19 +51,4 @@
     
     
     
-    
-  <url>
-    <loc>http://cookily.github.io/2018/02/23/hello-world/</loc>
-    <lastmod>2018-02-23T02:18:53.499Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2018-02-23T02:18:53.499Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>

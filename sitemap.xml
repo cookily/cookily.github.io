@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cookily.github.io/2018/02/23/hello-world/</loc>
+    
+    <lastmod>2018-02-23T08:52:49.384Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cookily.github.io/2018/02/23/new/</loc>
     
     <lastmod>2018-02-23T08:24:43.585Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://cookily.github.io/404/index.html</loc>
     
     <lastmod>2018-02-23T08:10:59.808Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cookily.github.io/2018/02/23/hello-world/</loc>
-    
-    <lastmod>2018-02-23T02:18:53.499Z</lastmod>
     
   </url>
   
