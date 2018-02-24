@@ -129,6 +129,14 @@
     
       <category term="Docker" scheme="http://code.cookily.cn/tags/Docker/"/>
     
+      <category term="MySQL" scheme="http://code.cookily.cn/tags/MySQL/"/>
+    
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
+    
+      <category term="内部连接" scheme="http://code.cookily.cn/tags/%E5%86%85%E9%83%A8%E8%BF%9E%E6%8E%A5/"/>
+    
+      <category term="外部连接" scheme="http://code.cookily.cn/tags/%E5%A4%96%E9%83%A8%E8%BF%9E%E6%8E%A5/"/>
+    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -138,14 +146,6 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
-    
-      <category term="MySQL" scheme="http://code.cookily.cn/tags/MySQL/"/>
-    
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
-    
-      <category term="内部连接" scheme="http://code.cookily.cn/tags/%E5%86%85%E9%83%A8%E8%BF%9E%E6%8E%A5/"/>
-    
-      <category term="外部连接" scheme="http://code.cookily.cn/tags/%E5%A4%96%E9%83%A8%E8%BF%9E%E6%8E%A5/"/>
     
   </entry>
   
@@ -176,8 +176,6 @@
     
       <category term="Docker" scheme="http://code.cookily.cn/tags/Docker/"/>
     
-      <category term="Tomcat，Centos 7" scheme="http://code.cookily.cn/tags/Tomcat%EF%BC%8CCentos-7/"/>
-    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -187,6 +185,8 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="Tomcat，Centos 7" scheme="http://code.cookily.cn/tags/Tomcat%EF%BC%8CCentos-7/"/>
     
   </entry>
   

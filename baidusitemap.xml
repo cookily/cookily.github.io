@@ -92,6 +92,14 @@
         
         <tag>Docker</tag>
          
+        <tag>MySQL</tag>
+         
+        <tag>Centos 7</tag>
+         
+        <tag>内部连接</tag>
+         
+        <tag>外部连接</tag>
+         
         <tag>Hexo</tag>
          
         <tag>IntelliJ IDEA</tag>
@@ -101,14 +109,6 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
-         
-        <tag>MySQL</tag>
-         
-        <tag>Centos 7</tag>
-         
-        <tag>内部连接</tag>
-         
-        <tag>外部连接</tag>
          
          
            
@@ -136,8 +136,6 @@
         
         <tag>Docker</tag>
          
-        <tag>Tomcat，Centos 7</tag>
-         
         <tag>Hexo</tag>
          
         <tag>IntelliJ IDEA</tag>
@@ -147,6 +145,8 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
+         
+        <tag>Tomcat，Centos 7</tag>
          
          
            
