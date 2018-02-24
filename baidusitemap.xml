@@ -4,12 +4,91 @@
 
     
   <url>
+    <loc>http://code.cookily.cn/2018/02/24/Centos%207%20%E4%B8%8B%E5%AE%89%E8%A3%85%20docker-compose/</loc>
+    <lastmod>2018-02-24T08:59:59.024Z</lastmod>
+    <data>
+        <display>
+        <title>Centos 7 下安装 Docker-compose</title>
+        <pubTime>2018-02-24T08:59:59.024Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>IntelliJ IDEA</tag>
+         
+        <tag>Git</tag>
+         
+        <tag>Github</tag>
+         
+        <tag>Node.js</tag>
+         
+        <tag>Docker，Centos 7</tag>
+         
+        <tag>Docker-compose</tag>
+         
+         
+           
+             
+              <breadCrumb title="Docker" url="http://code.cookily.cn/categories/Docker/"/>
+          
+             
+              <breadCrumb title="Docker-compose" url="http://code.cookily.cn/categories/Docker/Docker-compose/"/>
+          
+             
+              <breadCrumb title="Centos 7" url="http://code.cookily.cn/categories/Docker/Docker-compose/Centos-7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://code.cookily.cn/2018/02/24/Centos%207%20%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%20docker%20%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%98%BF%E9%87%8C%E4%BA%91%E5%8A%A0%E9%80%9F%20%E7%BD%91%E6%98%93%E5%8A%A0%E9%80%9F/</loc>
+    <lastmod>2018-02-24T08:59:58.982Z</lastmod>
+    <data>
+        <display>
+        <title>Centos 7 安装最新 Docker 并实现阿里云加速 网易加速</title>
+        <pubTime>2018-02-24T08:59:58.981Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>IntelliJ IDEA</tag>
+         
+        <tag>Git</tag>
+         
+        <tag>Github</tag>
+         
+        <tag>Node.js</tag>
+         
+        <tag>Docker，Centos 7</tag>
+         
+        <tag>阿里云加速</tag>
+         
+        <tag>网易加速</tag>
+         
+         
+           
+             
+              <breadCrumb title="Docker" url="http://code.cookily.cn/categories/Docker/"/>
+          
+             
+              <breadCrumb title="阿里云加速" url="http://code.cookily.cn/categories/Docker/%E9%98%BF%E9%87%8C%E4%BA%91%E5%8A%A0%E9%80%9F/"/>
+          
+             
+              <breadCrumb title="网易加速" url="http://code.cookily.cn/categories/Docker/%E9%98%BF%E9%87%8C%E4%BA%91%E5%8A%A0%E9%80%9F/%E7%BD%91%E6%98%93%E5%8A%A0%E9%80%9F/"/>
+          
+             
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://code.cookily.cn/2018/02/24/Centos%207%20%E4%B8%8B%20docker%20%E5%AE%89%E8%A3%85mysql%20%E5%92%8C%E4%BD%BF%E7%94%A8%20%E5%86%85%E9%83%A8%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%A4%96%E9%83%A8%E8%BF%9E%E6%8E%A5/</loc>
-    <lastmod>2018-02-24T07:38:46.012Z</lastmod>
+    <lastmod>2018-02-24T08:59:58.939Z</lastmod>
     <data>
         <display>
         <title>Centos 7 下 docker 安装MySQL 和使用 内部连接和外部连接</title>
-        <pubTime>2018-02-24T07:38:46.011Z</pubTime>
+        <pubTime>2018-02-24T08:59:58.939Z</pubTime>
         
         <tag>Docker</tag>
          
@@ -49,11 +128,11 @@
     
   <url>
     <loc>http://code.cookily.cn/2018/02/24/Centos%207%20%E4%B8%8B%20docker%20%E5%AE%89%E8%A3%85%20tomcat%20%E5%92%8C%20%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2018-02-24T07:02:22.155Z</lastmod>
+    <lastmod>2018-02-24T08:59:58.891Z</lastmod>
     <data>
         <display>
         <title>Centos 7 下 docker 安装 tomcat 和 使用</title>
-        <pubTime>2018-02-24T07:02:22.153Z</pubTime>
+        <pubTime>2018-02-24T08:59:58.890Z</pubTime>
         
         <tag>Docker</tag>
          
@@ -85,83 +164,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://code.cookily.cn/2018/02/24/%E4%B8%AD%E6%96%87/</loc>
-    <lastmod>2018-02-24T06:51:11.977Z</lastmod>
-    <data>
-        <display>
-        <title>这是文章标题</title>
-        <pubTime>2018-02-24T06:51:11.976Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>IntelliJ IDEA</tag>
-         
-        <tag>Git</tag>
-         
-        <tag>Github</tag>
-         
-        <tag>Node.js</tag>
-         
-         
-           
-             
-              <breadCrumb title="Hexo" url="http://code.cookily.cn/categories/Hexo/"/>
-          
-             
-              <breadCrumb title="中文" url="http://code.cookily.cn/categories/Hexo/%E4%B8%AD%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://code.cookily.cn/2018/02/23/hello-world/</loc>
-    <lastmod>2018-02-23T08:52:49.384Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2018-02-23T08:52:49.383Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://code.cookily.cn/2018/02/23/new/</loc>
-    <lastmod>2018-02-23T08:24:43.585Z</lastmod>
-    <data>
-        <display>
-        <title>这是文章标题</title>
-        <pubTime>2018-02-23T08:24:43.584Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>IntelliJ IDEA</tag>
-         
-        <tag>Git</tag>
-         
-        <tag>Github</tag>
-         
-        <tag>Node.js</tag>
-         
-         
-           
-             
-              <breadCrumb title="Hexo" url="http://code.cookily.cn/categories/Hexo/"/>
-          
-             
-              <breadCrumb title="IntelliJ IDEA" url="http://code.cookily.cn/categories/Hexo/IntelliJ-IDEA/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
     
 </urlset>
