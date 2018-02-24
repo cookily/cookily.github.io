@@ -5,14 +5,30 @@
     
   <url>
     <loc>http://code.cookily.cn/2018/02/24/%E4%B8%AD%E6%96%87/</loc>
-    <lastmod>2018-02-24T06:43:45.713Z</lastmod>
+    <lastmod>2018-02-24T06:45:47.961Z</lastmod>
     <data>
         <display>
-        <title></title>
-        <pubTime>2018-02-24T06:43:45.712Z</pubTime>
+        <title>这是文章标题</title>
+        <pubTime>2018-02-24T06:45:47.961Z</pubTime>
         
+        <tag>Hexo</tag>
+         
+        <tag>IntelliJ IDEA</tag>
+         
+        <tag>Git</tag>
+         
+        <tag>Github</tag>
+         
+        <tag>Node.js</tag>
+         
          
            
+             
+              <breadCrumb title="Hexo" url="http://code.cookily.cn/categories/Hexo/"/>
+          
+             
+              <breadCrumb title="中文" url="http://code.cookily.cn/categories/Hexo/%E4%B8%AD%E6%96%87/"/>
+          
         </display>
     </data>
     </url>
