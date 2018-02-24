@@ -5,9 +5,9 @@
   <subtitle>天行健，君子于自强不息</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://cookily.github.io/"/>
+  <link href="http://code.cookily.cn/"/>
   <updated>2018-02-23T08:52:49.384Z</updated>
-  <id>http://cookily.github.io/</id>
+  <id>http://code.cookily.cn/</id>
   
   <author>
     <name>樑仔</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://cookily.github.io/2018/02/23/hello-world/"/>
-    <id>http://cookily.github.io/2018/02/23/hello-world/</id>
+    <link href="http://code.cookily.cn/2018/02/23/hello-world/"/>
+    <id>http://code.cookily.cn/2018/02/23/hello-world/</id>
     <published>2018-02-23T08:52:49.383Z</published>
     <updated>2018-02-23T08:52:49.384Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>这是文章标题</title>
-    <link href="http://cookily.github.io/2018/02/23/new/"/>
-    <id>http://cookily.github.io/2018/02/23/new/</id>
+    <link href="http://code.cookily.cn/2018/02/23/new/"/>
+    <id>http://code.cookily.cn/2018/02/23/new/</id>
     <published>2018-02-23T08:24:43.584Z</published>
     <updated>2018-02-23T08:24:43.585Z</updated>
     
@@ -55,20 +55,20 @@
     
     </summary>
     
-      <category term="Hexo" scheme="http://cookily.github.io/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://code.cookily.cn/categories/Hexo/"/>
     
-      <category term="IntelliJ IDEA" scheme="http://cookily.github.io/categories/Hexo/IntelliJ-IDEA/"/>
+      <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/categories/Hexo/IntelliJ-IDEA/"/>
     
     
-      <category term="Hexo" scheme="http://cookily.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
-      <category term="IntelliJ IDEA" scheme="http://cookily.github.io/tags/IntelliJ-IDEA/"/>
+      <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
     
-      <category term="Git" scheme="http://cookily.github.io/tags/Git/"/>
+      <category term="Git" scheme="http://code.cookily.cn/tags/Git/"/>
     
-      <category term="Github" scheme="http://cookily.github.io/tags/Github/"/>
+      <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
-      <category term="Node.js" scheme="http://cookily.github.io/tags/Node-js/"/>
+      <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
     
   </entry>
   

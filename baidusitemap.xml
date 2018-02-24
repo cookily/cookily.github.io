@@ -4,7 +4,7 @@
 
     
   <url>
-    <loc>http://cookily.github.io/2018/02/23/hello-world/</loc>
+    <loc>http://code.cookily.cn/2018/02/23/hello-world/</loc>
     <lastmod>2018-02-23T08:52:49.384Z</lastmod>
     <data>
         <display>
@@ -19,7 +19,7 @@
 
     
   <url>
-    <loc>http://cookily.github.io/2018/02/23/new/</loc>
+    <loc>http://code.cookily.cn/2018/02/23/new/</loc>
     <lastmod>2018-02-23T08:24:43.585Z</lastmod>
     <data>
         <display>
@@ -39,10 +39,10 @@
          
            
              
-              <breadCrumb title="Hexo" url="http://cookily.github.io/categories/Hexo/"/>
+              <breadCrumb title="Hexo" url="http://code.cookily.cn/categories/Hexo/"/>
           
              
-              <breadCrumb title="IntelliJ IDEA" url="http://cookily.github.io/categories/Hexo/IntelliJ-IDEA/"/>
+              <breadCrumb title="IntelliJ IDEA" url="http://code.cookily.cn/categories/Hexo/IntelliJ-IDEA/"/>
           
         </display>
     </data>
