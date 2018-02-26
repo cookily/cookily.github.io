@@ -4,47 +4,12 @@
 
     
   <url>
-    <loc>http://code.cookily.cn/2018/02/26/Centos7%20%E5%AE%89%E8%A3%85%20Tomcat8/</loc>
-    <lastmod>2018-02-26T07:32:48.229Z</lastmod>
-    <data>
-        <display>
-        <title>Centos7 安装 Tomcat8</title>
-        <pubTime>2018-02-26T07:32:48.228Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>IntelliJ IDEA</tag>
-         
-        <tag>Git</tag>
-         
-        <tag>Github</tag>
-         
-        <tag>Node.js</tag>
-         
-        <tag>Centos 7</tag>
-         
-        <tag>Tomcat8</tag>
-         
-         
-           
-             
-              <breadCrumb title="Tomcat8" url="http://code.cookily.cn/categories/Tomcat8/"/>
-          
-             
-              <breadCrumb title="Centos 7" url="http://code.cookily.cn/categories/Tomcat8/Centos-7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://code.cookily.cn/2018/02/26/Centos7%20%E5%AE%89%E8%A3%85%20Tomcat8%20%E9%9B%86%E7%BE%A4/</loc>
-    <lastmod>2018-02-26T07:31:33.493Z</lastmod>
+    <lastmod>2018-02-26T07:34:50.675Z</lastmod>
     <data>
         <display>
         <title>Centos7 安装 Tomcat8 集群</title>
-        <pubTime>2018-02-26T07:31:33.493Z</pubTime>
+        <pubTime>2018-02-26T07:34:50.675Z</pubTime>
         
         <tag>Hexo</tag>
          
@@ -67,6 +32,41 @@
           
              
               <breadCrumb title="Centos 7" url="http://code.cookily.cn/categories/Tomcat8-%E9%9B%86%E7%BE%A4/Centos-7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://code.cookily.cn/2018/02/26/Centos7%20%E5%AE%89%E8%A3%85%20Tomcat8/</loc>
+    <lastmod>2018-02-26T07:34:50.628Z</lastmod>
+    <data>
+        <display>
+        <title>Centos7 安装 Tomcat8</title>
+        <pubTime>2018-02-26T07:34:50.627Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>IntelliJ IDEA</tag>
+         
+        <tag>Git</tag>
+         
+        <tag>Github</tag>
+         
+        <tag>Node.js</tag>
+         
+        <tag>Centos 7</tag>
+         
+        <tag>Tomcat8</tag>
+         
+         
+           
+             
+              <breadCrumb title="Tomcat8" url="http://code.cookily.cn/categories/Tomcat8/"/>
+          
+             
+              <breadCrumb title="Centos 7" url="http://code.cookily.cn/categories/Tomcat8/Centos-7/"/>
           
         </display>
     </data>
