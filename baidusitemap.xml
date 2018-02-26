@@ -4,15 +4,13 @@
 
     
   <url>
-    <loc>http://code.cookily.cn/2018/02/26/Centos7%20Keepalived+Nginx%20%E7%83%AD%E5%A4%87/</loc>
-    <lastmod>2018-02-26T07:18:01.807Z</lastmod>
+    <loc>http://code.cookily.cn/2018/02/26/Centos7%20%E5%AE%89%E8%A3%85%20Tomcat8%20%E9%9B%86%E7%BE%A4/</loc>
+    <lastmod>2018-02-26T07:27:00.575Z</lastmod>
     <data>
         <display>
-        <title>Centos7 Keepalived+Nginx 热备</title>
-        <pubTime>2018-02-26T07:18:01.806Z</pubTime>
+        <title>Centos7 安装 Tomcat8 集群</title>
+        <pubTime>2018-02-26T07:27:00.574Z</pubTime>
         
-        <tag>Centos 7</tag>
-         
         <tag>Hexo</tag>
          
         <tag>IntelliJ IDEA</tag>
@@ -22,6 +20,78 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
+         
+        <tag>Centos 7</tag>
+         
+        <tag>Tomcat8 集群</tag>
+         
+         
+           
+             
+              <breadCrumb title="Tomcat8 集群" url="http://code.cookily.cn/categories/Tomcat8-%E9%9B%86%E7%BE%A4/"/>
+          
+             
+              <breadCrumb title="Centos 7" url="http://code.cookily.cn/categories/Tomcat8-%E9%9B%86%E7%BE%A4/Centos-7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://code.cookily.cn/2018/02/26/Centos7%20%E5%AE%89%E8%A3%85%20Tomcat8/</loc>
+    <lastmod>2018-02-26T07:24:39.987Z</lastmod>
+    <data>
+        <display>
+        <title>Centos7 安装 Tomcat8</title>
+        <pubTime>2018-02-26T07:24:39.986Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>IntelliJ IDEA</tag>
+         
+        <tag>Git</tag>
+         
+        <tag>Github</tag>
+         
+        <tag>Node.js</tag>
+         
+        <tag>Centos 7</tag>
+         
+        <tag>Tomcat8</tag>
+         
+         
+           
+             
+              <breadCrumb title="Tomcat8" url="http://code.cookily.cn/categories/Tomcat8/"/>
+          
+             
+              <breadCrumb title="Centos 7" url="http://code.cookily.cn/categories/Tomcat8/Centos-7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://code.cookily.cn/2018/02/26/Centos7%20Keepalived+Nginx%20%E7%83%AD%E5%A4%87/</loc>
+    <lastmod>2018-02-26T07:18:01.807Z</lastmod>
+    <data>
+        <display>
+        <title>Centos7 Keepalived+Nginx 热备</title>
+        <pubTime>2018-02-26T07:18:01.806Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>IntelliJ IDEA</tag>
+         
+        <tag>Git</tag>
+         
+        <tag>Github</tag>
+         
+        <tag>Node.js</tag>
+         
+        <tag>Centos 7</tag>
          
         <tag>Nginx</tag>
          
@@ -51,8 +121,6 @@
         <title>Centos7 Nginx 安装</title>
         <pubTime>2018-02-26T06:56:14.016Z</pubTime>
         
-        <tag>Centos 7</tag>
-         
         <tag>Hexo</tag>
          
         <tag>IntelliJ IDEA</tag>
@@ -62,6 +130,8 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
+         
+        <tag>Centos 7</tag>
          
         <tag>Nginx</tag>
          
@@ -116,8 +186,6 @@
         <title>Centos7 安装  jdk8</title>
         <pubTime>2018-02-26T06:48:30.132Z</pubTime>
         
-        <tag>Centos 7</tag>
-         
         <tag>Hexo</tag>
          
         <tag>IntelliJ IDEA</tag>
@@ -127,6 +195,8 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
+         
+        <tag>Centos 7</tag>
          
         <tag>JDK8</tag>
          
@@ -232,14 +302,6 @@
         
         <tag>Docker</tag>
          
-        <tag>MySQL</tag>
-         
-        <tag>Centos 7</tag>
-         
-        <tag>内部连接</tag>
-         
-        <tag>外部连接</tag>
-         
         <tag>Hexo</tag>
          
         <tag>IntelliJ IDEA</tag>
@@ -249,6 +311,14 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
+         
+        <tag>MySQL</tag>
+         
+        <tag>Centos 7</tag>
+         
+        <tag>内部连接</tag>
+         
+        <tag>外部连接</tag>
          
          
            
@@ -276,6 +346,8 @@
         
         <tag>Docker</tag>
          
+        <tag>Tomcat，Centos 7</tag>
+         
         <tag>Hexo</tag>
          
         <tag>IntelliJ IDEA</tag>
@@ -285,8 +357,6 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
-         
-        <tag>Tomcat，Centos 7</tag>
          
          
            
