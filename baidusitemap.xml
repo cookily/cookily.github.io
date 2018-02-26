@@ -4,6 +4,106 @@
 
     
   <url>
+    <loc>http://code.cookily.cn/2018/02/26/Centos7%20Nginx%20%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2018-02-26T06:56:14.017Z</lastmod>
+    <data>
+        <display>
+        <title>Centos7 Nginx 安装</title>
+        <pubTime>2018-02-26T06:56:14.016Z</pubTime>
+        
+        <tag>Nginx</tag>
+         
+        <tag>Centos 7</tag>
+         
+        <tag>Hexo</tag>
+         
+        <tag>IntelliJ IDEA</tag>
+         
+        <tag>Git</tag>
+         
+        <tag>Github</tag>
+         
+        <tag>Node.js</tag>
+         
+         
+           
+             
+              <breadCrumb title="Nginx" url="http://code.cookily.cn/categories/Nginx/"/>
+          
+             
+              <breadCrumb title="Centos 7" url="http://code.cookily.cn/categories/Nginx/Centos-7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://code.cookily.cn/2018/02/26/mysql%20%E7%94%A8%E6%88%B7%E5%88%9B%E5%BB%BA+%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9+%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7+%E8%A7%92%E8%89%B2%E5%88%86%E9%85%8D/</loc>
+    <lastmod>2018-02-26T06:51:38.278Z</lastmod>
+    <data>
+        <display>
+        <title>mysql 用户创建+密码修改+删除用户+角色分配</title>
+        <pubTime>2018-02-26T06:51:38.277Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>IntelliJ IDEA</tag>
+         
+        <tag>Git</tag>
+         
+        <tag>Github</tag>
+         
+        <tag>Node.js</tag>
+         
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="mysql" url="http://code.cookily.cn/categories/mysql/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://code.cookily.cn/2018/02/26/Centos7%20%E5%AE%89%E8%A3%85%20%20jdk8/</loc>
+    <lastmod>2018-02-26T06:48:30.134Z</lastmod>
+    <data>
+        <display>
+        <title>Centos7 安装  jdk8</title>
+        <pubTime>2018-02-26T06:48:30.132Z</pubTime>
+        
+        <tag>Centos 7</tag>
+         
+        <tag>Hexo</tag>
+         
+        <tag>IntelliJ IDEA</tag>
+         
+        <tag>Git</tag>
+         
+        <tag>Github</tag>
+         
+        <tag>Node.js</tag>
+         
+        <tag>JDK8</tag>
+         
+         
+           
+             
+              <breadCrumb title="JDK8" url="http://code.cookily.cn/categories/JDK8/"/>
+          
+             
+              <breadCrumb title="Centos 7" url="http://code.cookily.cn/categories/JDK8/Centos-7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://code.cookily.cn/2018/02/24/Centos%207%20%E4%B8%8B%E5%AE%89%E8%A3%85%20docker-compose/</loc>
     <lastmod>2018-02-24T08:59:59.024Z</lastmod>
     <data>
@@ -90,15 +190,7 @@
         <title>Centos 7 下 docker 安装MySQL 和使用 内部连接和外部连接</title>
         <pubTime>2018-02-24T08:59:58.939Z</pubTime>
         
-        <tag>Docker</tag>
-         
-        <tag>MySQL</tag>
-         
         <tag>Centos 7</tag>
-         
-        <tag>内部连接</tag>
-         
-        <tag>外部连接</tag>
          
         <tag>Hexo</tag>
          
@@ -109,6 +201,14 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
+         
+        <tag>Docker</tag>
+         
+        <tag>MySQL</tag>
+         
+        <tag>内部连接</tag>
+         
+        <tag>外部连接</tag>
          
          
            
@@ -134,8 +234,6 @@
         <title>Centos 7 下 docker 安装 tomcat 和 使用</title>
         <pubTime>2018-02-24T08:59:58.890Z</pubTime>
         
-        <tag>Docker</tag>
-         
         <tag>Hexo</tag>
          
         <tag>IntelliJ IDEA</tag>
@@ -145,6 +243,8 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
+         
+        <tag>Docker</tag>
          
         <tag>Tomcat，Centos 7</tag>
          

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://code.cookily.cn/"/>
-  <updated>2018-02-24T08:59:59.024Z</updated>
+  <updated>2018-02-26T06:56:14.017Z</updated>
   <id>http://code.cookily.cn/</id>
   
   <author>
@@ -15,6 +15,119 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Centos7 Nginx 安装</title>
+    <link href="http://code.cookily.cn/2018/02/26/Centos7%20Nginx%20%E5%AE%89%E8%A3%85/"/>
+    <id>http://code.cookily.cn/2018/02/26/Centos7 Nginx 安装/</id>
+    <published>2018-02-26T06:56:14.016Z</published>
+    <updated>2018-02-26T06:56:14.017Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="我使用centos7X64最小化安装"><a href="#我使用centos7X64最小化安装" class="headerlink" title="我使用centos7X64最小化安装"></a>我使用centos7X64最小化安装</h3><h3 id="CentOS-7-x86-64-Minimal-1708"><a href="#CentOS-7-x86-64-Minimal-1708" class="headerlink" title="CentOS-7-x86_64-Minimal-1708"></a>CentOS-7-x86_64-Minimal-1708</h3><h2 id="1-关闭firewall："><a href="#1-关闭firewall：" class="headerlink" title="1.关闭firewall："></a>1.关闭firewall：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service #停止firewall</span><br><span class="line">systemctl disable firewalld.service #禁止firewall开机启动</span><br><span class="line">firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# firewall-cmd --state</span><br><span class="line">not running</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure><h2 id="2-安装wget"><a href="#2-安装wget" class="headerlink" title="2.安装wget"></a>2.安装wget</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br></pre></td></tr></table></figure><h2 id="3-安装nginx-编译环境"><a href="#3-安装nginx-编译环境" class="headerlink" title="3.安装nginx 编译环境"></a>3.安装nginx 编译环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc-c++</span><br><span class="line">yum install -y pcre pcre-devel</span><br><span class="line">yum install -y zlib zlib-devel</span><br><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure><h2 id="4-安装nginx"><a href="#4-安装nginx" class="headerlink" title="4.安装nginx"></a>4.安装nginx</h2><h3 id="官方查看最新稳定版本-官网链接直达"><a href="#官方查看最新稳定版本-官网链接直达" class="headerlink" title="官方查看最新稳定版本  官网链接直达"></a>官方查看最新稳定版本  <a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">官网链接直达</a></h3><h3 id="我现在最新稳定版本是-nginx-1-12-2"><a href="#我现在最新稳定版本是-nginx-1-12-2" class="headerlink" title="我现在最新稳定版本是:nginx-1.12.2"></a>我现在最新稳定版本是:nginx-1.12.2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://nginx.org/download/nginx-1.12.2.tar.gz</span><br></pre></td></tr></table></figure><h2 id="5-解压"><a href="#5-解压" class="headerlink" title="5.解压"></a>5.解压</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.12.2.tar.gz</span><br><span class="line">cd nginx-1.12.2</span><br></pre></td></tr></table></figure><h2 id="6-配置nginx"><a href="#6-配置nginx" class="headerlink" title="6.配置nginx"></a>6.配置nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure><h2 id="7-编译安装"><a href="#7-编译安装" class="headerlink" title="7.编译安装"></a>7.编译安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure><h2 id="8-启动、停止、重启nginx"><a href="#8-启动、停止、重启nginx" class="headerlink" title="8.启动、停止、重启nginx"></a>8.启动、停止、重启nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin/</span><br><span class="line">./nginx </span><br><span class="line">./nginx -s reload #重新加载配置文件</span><br><span class="line">./nginx -s quit #:推荐 待nginx进程处理任务完毕进行停止</span><br><span class="line">./nginx -s stop #:先查出nginx进程id再使用kill命令强制杀掉进程。</span><br></pre></td></tr></table></figure><h2 id="9-查询nginx进程："><a href="#9-查询nginx进程：" class="headerlink" title="9.查询nginx进程："></a>9.查询nginx进程：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep nginx</span><br></pre></td></tr></table></figure><h2 id="10-开机自启动"><a href="#10-开机自启动" class="headerlink" title="10.开机自启动"></a>10.开机自启动</h2><h3 id="在rc-local增加启动代码就可以了。"><a href="#在rc-local增加启动代码就可以了。" class="headerlink" title="在rc.local增加启动代码就可以了。"></a>在rc.local增加启动代码就可以了。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rc.local</span><br></pre></td></tr></table></figure><h3 id="底部增加一行-usr-local-nginx-sbin-nginx"><a href="#底部增加一行-usr-local-nginx-sbin-nginx" class="headerlink" title="底部增加一行 /usr/local/nginx/sbin/nginx"></a>底部增加一行 /usr/local/nginx/sbin/nginx</h3><h3 id="设置执行权限："><a href="#设置执行权限：" class="headerlink" title="设置执行权限："></a>设置执行权限：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 /etc/rc.local</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;我使用centos7X64最小化安装&quot;&gt;&lt;a href=&quot;#我使用centos7X64最小化安装&quot; class=&quot;headerlink&quot; title=&quot;我使用centos7X64最小化安装&quot;&gt;&lt;/a&gt;我使用centos7X64最小化安装&lt;/h3&gt;&lt;h3 id=&quot;C
+      
+    
+    </summary>
+    
+      <category term="Nginx" scheme="http://code.cookily.cn/categories/Nginx/"/>
+    
+      <category term="Centos 7" scheme="http://code.cookily.cn/categories/Nginx/Centos-7/"/>
+    
+    
+      <category term="Nginx" scheme="http://code.cookily.cn/tags/Nginx/"/>
+    
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
+    
+      <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
+    
+      <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
+    
+      <category term="Git" scheme="http://code.cookily.cn/tags/Git/"/>
+    
+      <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
+    
+      <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql 用户创建+密码修改+删除用户+角色分配</title>
+    <link href="http://code.cookily.cn/2018/02/26/mysql%20%E7%94%A8%E6%88%B7%E5%88%9B%E5%BB%BA+%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9+%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7+%E8%A7%92%E8%89%B2%E5%88%86%E9%85%8D/"/>
+    <id>http://code.cookily.cn/2018/02/26/mysql 用户创建+密码修改+删除用户+角色分配/</id>
+    <published>2018-02-26T06:51:38.277Z</published>
+    <updated>2018-02-26T06:51:38.278Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">当前mysql版本</span><br><span class="line">mysql&gt; select version();</span><br><span class="line">+------------+</span><br><span class="line">| version()  |</span><br><span class="line">+------------+</span><br><span class="line">| 5.6.38 |</span><br><span class="line">+------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure><h2 id="1-创建用户"><a href="#1-创建用户" class="headerlink" title="1.创建用户:"></a>1.创建用户:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &apos;username&apos;@&apos;host&apos; IDENTIFIED BY &apos;password&apos;;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username：你将创建的用户名</span><br><span class="line">host：指定该用户在哪个主机上可以登陆，如果是本地用户可用localhost，如果想让该用户可以从任意远程主机登陆，可以使用通配符%</span><br><span class="line">password：该用户的登陆密码，密码可以为空，如果为空则该用户可以不需要密码登陆服务器</span><br></pre></td></tr></table></figure><h3 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子:"></a>举个栗子:</h3><h4 id="创建张三用户，密码123456，可以从任意远程主机登陆"><a href="#创建张三用户，密码123456，可以从任意远程主机登陆" class="headerlink" title="创建张三用户，密码123456，可以从任意远程主机登陆(%)"></a>创建张三用户，密码123456，可以从任意远程主机登陆(%)</h4><h4 id="如果是本地用户可用-localhost"><a href="#如果是本地用户可用-localhost" class="headerlink" title="如果是本地用户可用(localhost)"></a>如果是本地用户可用(localhost)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &apos;zhangsan&apos;@&apos;%&apos; IDENTIFIED BY &apos;123456&apos;;</span><br></pre></td></tr></table></figure><hr><h2 id="2-授权"><a href="#2-授权" class="headerlink" title="2. 授权:"></a>2. 授权:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT privileges ON databasename.tablename TO &apos;username&apos;@&apos;host&apos;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL</span><br><span class="line">databasename：数据库名</span><br><span class="line">tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用*表示，如*.*</span><br></pre></td></tr></table></figure><h3 id="举个栗子-1"><a href="#举个栗子-1" class="headerlink" title="举个栗子:"></a>举个栗子:</h3><h4 id="给予zhangsan用户-在任意远程主机对bilibili库的a表select和insert权限"><a href="#给予zhangsan用户-在任意远程主机对bilibili库的a表select和insert权限" class="headerlink" title="给予zhangsan用户,在任意远程主机对bilibili库的a表select和insert权限"></a>给予zhangsan用户,在任意远程主机对bilibili库的a表select和insert权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT SELECT, INSERT ON bilibili.a TO &apos;zhangsan&apos;@&apos;%&apos;;</span><br></pre></td></tr></table></figure><h4 id="给予zhangsan用户-在任意远程主机所有库所有权限"><a href="#给予zhangsan用户-在任意远程主机所有库所有权限" class="headerlink" title="给予zhangsan用户,在任意远程主机所有库所有权限"></a>给予zhangsan用户,在任意远程主机所有库所有权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL ON *.* TO &apos;zhangsan&apos;@&apos;%&apos;;</span><br></pre></td></tr></table></figure><h4 id="如果授予权限要传递，那就在屁股跟上WITH-GRANT-OPTION"><a href="#如果授予权限要传递，那就在屁股跟上WITH-GRANT-OPTION" class="headerlink" title="如果授予权限要传递，那就在屁股跟上WITH GRANT OPTION;"></a>如果授予权限要传递，那就在屁股跟上WITH GRANT OPTION;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL ON *.* TO &apos;zhangsan&apos;@&apos;%&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure><h2 id="3-设置与更改用户密码"><a href="#3-设置与更改用户密码" class="headerlink" title="3.设置与更改用户密码"></a>3.设置与更改用户密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET PASSWORD FOR &apos;username&apos;@&apos;host&apos; = PASSWORD(&apos;newpassword&apos;);</span><br></pre></td></tr></table></figure><h3 id="如果是当前登陆用户用也可以使用："><a href="#如果是当前登陆用户用也可以使用：" class="headerlink" title="如果是当前登陆用户用也可以使用："></a>如果是当前登陆用户用也可以使用：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET PASSWORD = PASSWORD(&quot;newpassword&quot;);</span><br></pre></td></tr></table></figure><h2 id="4-撤销用户权限"><a href="#4-撤销用户权限" class="headerlink" title="4. 撤销用户权限"></a>4. 撤销用户权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REVOKE privilege ON databasename.tablename FROM &apos;username&apos;@&apos;host&apos;;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL</span><br><span class="line">databasename：数据库名</span><br><span class="line">tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用*表示，如*.*</span><br></pre></td></tr></table></figure><h3 id="举个栗子-2"><a href="#举个栗子-2" class="headerlink" title="举个栗子:"></a>举个栗子:</h3><h4 id="取消zhangsan对bilibili库的a表select权限"><a href="#取消zhangsan对bilibili库的a表select权限" class="headerlink" title="取消zhangsan对bilibili库的a表select权限"></a>取消zhangsan对bilibili库的a表select权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REVOKE SELECT ON bilibili.a FROM &apos;zhangsan&apos;@&apos;%&apos;;</span><br></pre></td></tr></table></figure><h4 id="假如你在给用户‘zhangsan‘-’-’授权的时候是这样的（或类似的）：GRANT-SELECT-ON-bilibili-a-TO-‘zhangsan‘-’-’"><a href="#假如你在给用户‘zhangsan‘-’-’授权的时候是这样的（或类似的）：GRANT-SELECT-ON-bilibili-a-TO-‘zhangsan‘-’-’" class="headerlink" title="假如你在给用户‘zhangsan‘@’%’授权的时候是这样的（或类似的）：GRANT SELECT ON bilibili.a TO ‘zhangsan‘@’%’"></a>假如你在给用户‘zhangsan‘@’%’授权的时候是这样的（或类似的）：GRANT SELECT ON bilibili.a TO ‘zhangsan‘@’%’</h4><h4 id="则在使用REVOKE-SELECT-ON-FROM-‘zhangsan‘-’-’-命令并不能撤销该用户对test数据库中user表的SELECT-操作。"><a href="#则在使用REVOKE-SELECT-ON-FROM-‘zhangsan‘-’-’-命令并不能撤销该用户对test数据库中user表的SELECT-操作。" class="headerlink" title="则在使用REVOKE SELECT ON . FROM ‘zhangsan‘@’%’;命令并不能撤销该用户对test数据库中user表的SELECT 操作。"></a>则在使用REVOKE SELECT ON <em>.</em> FROM ‘zhangsan‘@’%’;命令并不能撤销该用户对test数据库中user表的SELECT 操作。</h4><h4 id="相反，如果授权使用的是GRANT-SELECT-ON-TO-‘zhangsan‘-’-’-则REVOKE-SELECT-ON-bilibili-a-FROM-‘zhangsan‘-’-’-命令也不能撤销该用户对test数据库中user表的Select权限。"><a href="#相反，如果授权使用的是GRANT-SELECT-ON-TO-‘zhangsan‘-’-’-则REVOKE-SELECT-ON-bilibili-a-FROM-‘zhangsan‘-’-’-命令也不能撤销该用户对test数据库中user表的Select权限。" class="headerlink" title="相反，如果授权使用的是GRANT SELECT ON . TO ‘zhangsan‘@’%’;则REVOKE SELECT ON bilibili.a FROM ‘zhangsan‘@’%’;命令也不能撤销该用户对test数据库中user表的Select权限。"></a>相反，如果授权使用的是GRANT SELECT ON <em>.</em> TO ‘zhangsan‘@’%’;则REVOKE SELECT ON bilibili.a FROM ‘zhangsan‘@’%’;命令也不能撤销该用户对test数据库中user表的Select权限。</h4><h4 id="具体信息可以用命令SHOW-GRANTS-FOR-‘zhangsan‘-’-’-查看。"><a href="#具体信息可以用命令SHOW-GRANTS-FOR-‘zhangsan‘-’-’-查看。" class="headerlink" title="具体信息可以用命令SHOW GRANTS FOR ‘zhangsan‘@’%’; 查看。"></a>具体信息可以用命令SHOW GRANTS FOR ‘zhangsan‘@’%’; 查看。</h4><h2 id="5-然后删除用户"><a href="#5-然后删除用户" class="headerlink" title="5.然后删除用户"></a>5.然后删除用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP USER &apos;username&apos;@&apos;host&apos;;</span><br></pre></td></tr></table></figure><h3 id="举个栗子-3"><a href="#举个栗子-3" class="headerlink" title="举个栗子:"></a>举个栗子:</h3><h4 id="删除zhangsan用户"><a href="#删除zhangsan用户" class="headerlink" title="删除zhangsan用户"></a>删除zhangsan用户</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP USER &apos;zhangsan&apos;@&apos;%&apos;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://code.cookily.cn/categories/mysql/"/>
+    
+    
+      <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
+    
+      <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
+    
+      <category term="Git" scheme="http://code.cookily.cn/tags/Git/"/>
+    
+      <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
+    
+      <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="mysql" scheme="http://code.cookily.cn/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7 安装  jdk8</title>
+    <link href="http://code.cookily.cn/2018/02/26/Centos7%20%E5%AE%89%E8%A3%85%20%20jdk8/"/>
+    <id>http://code.cookily.cn/2018/02/26/Centos7 安装  jdk8/</id>
+    <published>2018-02-26T06:48:30.132Z</published>
+    <updated>2018-02-26T06:48:30.134Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="我使用centos7X64最小化安装"><a href="#我使用centos7X64最小化安装" class="headerlink" title="我使用centos7X64最小化安装"></a>我使用centos7X64最小化安装</h2><h3 id="CentOS-7-x86-64-Minimal-1708"><a href="#CentOS-7-x86-64-Minimal-1708" class="headerlink" title="CentOS-7-x86_64-Minimal-1708"></a>CentOS-7-x86_64-Minimal-1708</h3><h2 id="1-安装wget"><a href="#1-安装wget" class="headerlink" title="1.安装wget"></a>1.安装wget</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br></pre></td></tr></table></figure><h2 id="2-下载jdk8"><a href="#2-下载jdk8" class="headerlink" title="2.下载jdk8"></a>2.下载jdk8</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.tar.gz?AuthParam=1515389081_199e6be1d23489a50e55e6979e5f31c9</span><br></pre></td></tr></table></figure><h3 id="若失效，官网自己查下载地址"><a href="#若失效，官网自己查下载地址" class="headerlink" title="若失效，官网自己查下载地址"></a>若失效，官网自己查下载地址</h3><h2 id="3-解压"><a href="#3-解压" class="headerlink" title="3.解压"></a>3.解压</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u151-linux-x64.tar.gz?AuthParam=1515389081_199e6be1d23489a50e55e6979e5f31c9</span><br></pre></td></tr></table></figure><h2 id="4-移动到-usr-local-java-jdk1-8-0-151"><a href="#4-移动到-usr-local-java-jdk1-8-0-151" class="headerlink" title="4.移动到/usr/local/java/jdk1.8.0_151"></a>4.移动到/usr/local/java/jdk1.8.0_151</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/local/java</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv jdk1.8.0_151/ /usr/local/java/jdk1.8.0_151</span><br></pre></td></tr></table></figure><h2 id="5-设置环境变量"><a href="#5-设置环境变量" class="headerlink" title="5.设置环境变量"></a>5.设置环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br></pre></td></tr></table></figure><h3 id="文件最后加入："><a href="#文件最后加入：" class="headerlink" title="文件最后加入："></a>文件最后加入：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_151</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure><h2 id="6-配置文件立即生效"><a href="#6-配置文件立即生效" class="headerlink" title="6.配置文件立即生效"></a>6.配置文件立即生效</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure><h2 id="7-查看是否安装成功"><a href="#7-查看是否安装成功" class="headerlink" title="7.查看是否安装成功"></a>7.查看是否安装成功</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;我使用centos7X64最小化安装&quot;&gt;&lt;a href=&quot;#我使用centos7X64最小化安装&quot; class=&quot;headerlink&quot; title=&quot;我使用centos7X64最小化安装&quot;&gt;&lt;/a&gt;我使用centos7X64最小化安装&lt;/h2&gt;&lt;h3 id=&quot;C
+      
+    
+    </summary>
+    
+      <category term="JDK8" scheme="http://code.cookily.cn/categories/JDK8/"/>
+    
+      <category term="Centos 7" scheme="http://code.cookily.cn/categories/JDK8/Centos-7/"/>
+    
+    
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
+    
+      <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
+    
+      <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
+    
+      <category term="Git" scheme="http://code.cookily.cn/tags/Git/"/>
+    
+      <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
+    
+      <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="JDK8" scheme="http://code.cookily.cn/tags/JDK8/"/>
+    
+  </entry>
   
   <entry>
     <title>Centos 7 下安装 Docker-compose</title>
@@ -127,15 +240,7 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Docker/MySQL/Centos-7/"/>
     
     
-      <category term="Docker" scheme="http://code.cookily.cn/tags/Docker/"/>
-    
-      <category term="MySQL" scheme="http://code.cookily.cn/tags/MySQL/"/>
-    
       <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
-    
-      <category term="内部连接" scheme="http://code.cookily.cn/tags/%E5%86%85%E9%83%A8%E8%BF%9E%E6%8E%A5/"/>
-    
-      <category term="外部连接" scheme="http://code.cookily.cn/tags/%E5%A4%96%E9%83%A8%E8%BF%9E%E6%8E%A5/"/>
     
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
@@ -146,6 +251,14 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="Docker" scheme="http://code.cookily.cn/tags/Docker/"/>
+    
+      <category term="MySQL" scheme="http://code.cookily.cn/tags/MySQL/"/>
+    
+      <category term="内部连接" scheme="http://code.cookily.cn/tags/%E5%86%85%E9%83%A8%E8%BF%9E%E6%8E%A5/"/>
+    
+      <category term="外部连接" scheme="http://code.cookily.cn/tags/%E5%A4%96%E9%83%A8%E8%BF%9E%E6%8E%A5/"/>
     
   </entry>
   
@@ -174,8 +287,6 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Docker/Tomcat/Centos-7/"/>
     
     
-      <category term="Docker" scheme="http://code.cookily.cn/tags/Docker/"/>
-    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -185,6 +296,8 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="Docker" scheme="http://code.cookily.cn/tags/Docker/"/>
     
       <category term="Tomcat，Centos 7" scheme="http://code.cookily.cn/tags/Tomcat%EF%BC%8CCentos-7/"/>
     
