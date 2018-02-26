@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="樑仔实践学习笔记">
 <meta property="og:description" content="我使用centos7X64最小化安装CentOS-7-x86_64-Minimal-1708没装jdk的同学，请移步【centos7 安装 jdk8】的文章1.关闭firewall：123systemctl stop firewalld.service #停止firewallsystemctl disable firewalld.service #禁止firewall开机启动firewall-cm">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-26T07:24:39.987Z">
+<meta property="og:updated_time" content="2018-02-26T07:32:48.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos7 安装 Tomcat8">
 <meta name="twitter:description" content="我使用centos7X64最小化安装CentOS-7-x86_64-Minimal-1708没装jdk的同学，请移步【centos7 安装 jdk8】的文章1.关闭firewall：123systemctl stop firewalld.service #停止firewallsystemctl disable firewalld.service #禁止firewall开机启动firewall-cm">
@@ -143,7 +143,7 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h3 id="我使用centos7X64最小化安装"><a href="#我使用centos7X64最小化安装" class="headerlink" title="我使用centos7X64最小化安装"></a>我使用centos7X64最小化安装</h3><h3 id="CentOS-7-x86-64-Minimal-1708"><a href="#CentOS-7-x86-64-Minimal-1708" class="headerlink" title="CentOS-7-x86_64-Minimal-1708"></a>CentOS-7-x86_64-Minimal-1708</h3><h3 id="没装jdk的同学，请移步【centos7-安装-jdk8】的文章"><a href="#没装jdk的同学，请移步【centos7-安装-jdk8】的文章" class="headerlink" title="没装jdk的同学，请移步【centos7 安装 jdk8】的文章"></a>没装jdk的同学，请移步【centos7 安装 jdk8】的文章</h3><h2 id="1-关闭firewall："><a href="#1-关闭firewall：" class="headerlink" title="1.关闭firewall："></a>1.关闭firewall：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service #停止firewall</span><br><span class="line">systemctl disable firewalld.service #禁止firewall开机启动</span><br><span class="line">firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）</span><br></pre></td></tr></table></figure>
+            <h2 id="我使用centos7X64最小化安装"><a href="#我使用centos7X64最小化安装" class="headerlink" title="我使用centos7X64最小化安装"></a>我使用centos7X64最小化安装</h2><h3 id="CentOS-7-x86-64-Minimal-1708"><a href="#CentOS-7-x86-64-Minimal-1708" class="headerlink" title="CentOS-7-x86_64-Minimal-1708"></a>CentOS-7-x86_64-Minimal-1708</h3><h3 id="没装jdk的同学，请移步【centos7-安装-jdk8】的文章"><a href="#没装jdk的同学，请移步【centos7-安装-jdk8】的文章" class="headerlink" title="没装jdk的同学，请移步【centos7 安装 jdk8】的文章"></a>没装jdk的同学，请移步【centos7 安装 jdk8】的文章</h3><h2 id="1-关闭firewall："><a href="#1-关闭firewall：" class="headerlink" title="1.关闭firewall："></a>1.关闭firewall：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service #停止firewall</span><br><span class="line">systemctl disable firewalld.service #禁止firewall开机启动</span><br><span class="line">firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# firewall-cmd --state</span><br><span class="line">not running</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure>
 <h2 id="2-安装wget"><a href="#2-安装wget" class="headerlink" title="2.安装wget"></a>2.安装wget</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br></pre></td></tr></table></figure>
 <h2 id="3-下载tomcat8"><a href="#3-下载tomcat8" class="headerlink" title="3.下载tomcat8"></a>3.下载tomcat8</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirrors.shuosc.org/apache/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz</span><br></pre></td></tr></table></figure>
@@ -157,7 +157,7 @@
 <h2 id="9-tomcat8常见命令"><a href="#9-tomcat8常见命令" class="headerlink" title="9.tomcat8常见命令"></a>9.tomcat8常见命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl start tomcat8.service    //启动tomcat</span><br><span class="line"></span><br><span class="line">systemctl stop tomcat8.service    //关闭tomcat   </span><br><span class="line"></span><br><span class="line">systemctl restart tomcat8.service   //重启tomcat </span><br><span class="line"></span><br><span class="line">systemctl status tomcat8.service   //查看状态tomcat</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月26日 15:24</p>
+        <p>最后更新： 2018年02月26日 15:32</p>
         <p>原始链接： <a class="post-url" href="/2018/02/26/Centos7 安装 Tomcat8/" title="Centos7 安装 Tomcat8">http://code.cookily.cn/2018/02/26/Centos7 安装 Tomcat8/</a></p>
         <footer>
             <a href="http://code.cookily.cn">
@@ -278,24 +278,14 @@
 
 <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#我使用centos7X64最小化安装"><span class="post-toc-text">我使用centos7X64最小化安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CentOS-7-x86-64-Minimal-1708"><span class="post-toc-text">CentOS-7-x86_64-Minimal-1708</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#没装jdk的同学，请移步【centos7-安装-jdk8】的文章"><span class="post-toc-text">没装jdk的同学，请移步【centos7 安装 jdk8】的文章</span></a></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-关闭firewall："><span class="post-toc-text">1.关闭firewall：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-安装wget"><span class="post-toc-text">2.安装wget</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-下载tomcat8"><span class="post-toc-text">3.下载tomcat8</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-解压"><span class="post-toc-text">4.解压</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-移动到-usr-local"><span class="post-toc-text">5.移动到/usr/local</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-配置tomcat的jdk环境变量"><span class="post-toc-text">6.配置tomcat的jdk环境变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#在-OS-specific-support-前面加入如下代码："><span class="post-toc-text">在 OS specific support. 前面加入如下代码：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-配置tomcat8开机启动"><span class="post-toc-text">7.配置tomcat8开机启动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#在-usr-lib-systemd-system目录下增加tomcat8-service文件，内容如下"><span class="post-toc-text">在/usr/lib/systemd/system目录下增加tomcat8.service文件，内容如下:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-允许tomcat8开机启动"><span class="post-toc-text">8.允许tomcat8开机启动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-tomcat8常见命令"><span class="post-toc-text">9.tomcat8常见命令</span></a>
-        </li></nav>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#我使用centos7X64最小化安装"><span class="post-toc-text">我使用centos7X64最小化安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CentOS-7-x86-64-Minimal-1708"><span class="post-toc-text">CentOS-7-x86_64-Minimal-1708</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#没装jdk的同学，请移步【centos7-安装-jdk8】的文章"><span class="post-toc-text">没装jdk的同学，请移步【centos7 安装 jdk8】的文章</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-关闭firewall："><span class="post-toc-text">1.关闭firewall：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-安装wget"><span class="post-toc-text">2.安装wget</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-下载tomcat8"><span class="post-toc-text">3.下载tomcat8</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-解压"><span class="post-toc-text">4.解压</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-移动到-usr-local"><span class="post-toc-text">5.移动到/usr/local</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-配置tomcat的jdk环境变量"><span class="post-toc-text">6.配置tomcat的jdk环境变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#在-OS-specific-support-前面加入如下代码："><span class="post-toc-text">在 OS specific support. 前面加入如下代码：</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-配置tomcat8开机启动"><span class="post-toc-text">7.配置tomcat8开机启动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#在-usr-lib-systemd-system目录下增加tomcat8-service文件，内容如下"><span class="post-toc-text">在/usr/lib/systemd/system目录下增加tomcat8.service文件，内容如下:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-允许tomcat8开机启动"><span class="post-toc-text">8.允许tomcat8开机启动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-tomcat8常见命令"><span class="post-toc-text">9.tomcat8常见命令</span></a></li>
+        </nav>
     </aside>
 <nav id="article-nav">
   
-    <a href="/2018/02/26/Centos7 安装 Tomcat8 集群/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          Centos7 安装 Tomcat8 集群
-        
-      </span>
-    </a>
   
-  
-    <a href="/2018/02/26/Centos7 Keepalived+Nginx 热备/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Centos7 Keepalived+Nginx 热备</span>
+    <a href="/2018/02/26/Centos7 安装 Tomcat8 集群/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Centos7 安装 Tomcat8 集群</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
