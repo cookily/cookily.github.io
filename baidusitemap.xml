@@ -4,15 +4,13 @@
 
     
   <url>
-    <loc>http://code.cookily.cn/2018/02/26/Centos7%20Nginx%20%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2018-02-26T06:56:14.017Z</lastmod>
+    <loc>http://code.cookily.cn/2018/02/26/Centos7%20Keepalived+Nginx%20%E7%83%AD%E5%A4%87/</loc>
+    <lastmod>2018-02-26T07:18:01.807Z</lastmod>
     <data>
         <display>
-        <title>Centos7 Nginx 安装</title>
-        <pubTime>2018-02-26T06:56:14.016Z</pubTime>
+        <title>Centos7 Keepalived+Nginx 热备</title>
+        <pubTime>2018-02-26T07:18:01.806Z</pubTime>
         
-        <tag>Nginx</tag>
-         
         <tag>Centos 7</tag>
          
         <tag>Hexo</tag>
@@ -24,6 +22,48 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
+         
+        <tag>Nginx</tag>
+         
+        <tag>Keepalived</tag>
+         
+         
+           
+             
+              <breadCrumb title="Nginx" url="http://code.cookily.cn/categories/Nginx/"/>
+          
+             
+              <breadCrumb title="Keepalived" url="http://code.cookily.cn/categories/Nginx/Keepalived/"/>
+          
+             
+              <breadCrumb title="Centos 7" url="http://code.cookily.cn/categories/Nginx/Keepalived/Centos-7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://code.cookily.cn/2018/02/26/Centos7%20Nginx%20%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2018-02-26T06:56:14.017Z</lastmod>
+    <data>
+        <display>
+        <title>Centos7 Nginx 安装</title>
+        <pubTime>2018-02-26T06:56:14.016Z</pubTime>
+        
+        <tag>Centos 7</tag>
+         
+        <tag>Hexo</tag>
+         
+        <tag>IntelliJ IDEA</tag>
+         
+        <tag>Git</tag>
+         
+        <tag>Github</tag>
+         
+        <tag>Node.js</tag>
+         
+        <tag>Nginx</tag>
          
          
            
@@ -190,7 +230,15 @@
         <title>Centos 7 下 docker 安装MySQL 和使用 内部连接和外部连接</title>
         <pubTime>2018-02-24T08:59:58.939Z</pubTime>
         
+        <tag>Docker</tag>
+         
+        <tag>MySQL</tag>
+         
         <tag>Centos 7</tag>
+         
+        <tag>内部连接</tag>
+         
+        <tag>外部连接</tag>
          
         <tag>Hexo</tag>
          
@@ -201,14 +249,6 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
-         
-        <tag>Docker</tag>
-         
-        <tag>MySQL</tag>
-         
-        <tag>内部连接</tag>
-         
-        <tag>外部连接</tag>
          
          
            
@@ -234,6 +274,8 @@
         <title>Centos 7 下 docker 安装 tomcat 和 使用</title>
         <pubTime>2018-02-24T08:59:58.890Z</pubTime>
         
+        <tag>Docker</tag>
+         
         <tag>Hexo</tag>
          
         <tag>IntelliJ IDEA</tag>
@@ -243,8 +285,6 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
-         
-        <tag>Docker</tag>
          
         <tag>Tomcat，Centos 7</tag>
          

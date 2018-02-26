@@ -3,6 +3,44 @@
   
     
     <entry>
+      <title>Centos7 Keepalived+Nginx 热备</title>
+      <link href="/2018/02/26/Centos7%20Keepalived+Nginx%20%E7%83%AD%E5%A4%87/"/>
+      <content type="html"><![CDATA[<h2 id="我使用centos7X64最小化安装"><a href="#我使用centos7X64最小化安装" class="headerlink" title="我使用centos7X64最小化安装"></a>我使用centos7X64最小化安装</h2><h3 id="CentOS-7-x86-64-Minimal-1708"><a href="#CentOS-7-x86-64-Minimal-1708" class="headerlink" title="CentOS-7-x86_64-Minimal-1708"></a>CentOS-7-x86_64-Minimal-1708</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nginx_01 ip:192.168.59.128 主机</span><br><span class="line">nginx_02 ip:192.168.59.129 从机</span><br><span class="line">漂浮ip：192.168.59.130</span><br></pre></td></tr></table></figure><h2 id="1-关闭firewall："><a href="#1-关闭firewall：" class="headerlink" title="1.关闭firewall："></a>1.关闭firewall：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service #停止firewall</span><br><span class="line">systemctl disable firewalld.service #禁止firewall开机启动</span><br><span class="line">firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# firewall-cmd --state</span><br><span class="line">not running</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure><h2 id="2、安装keepalived"><a href="#2、安装keepalived" class="headerlink" title="2、安装keepalived"></a>2、安装keepalived</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install keepalived</span><br><span class="line">keepalived -v</span><br></pre></td></tr></table></figure><h2 id="3-先备份配置文件"><a href="#3-先备份配置文件" class="headerlink" title="3.先备份配置文件"></a>3.先备份配置文件</h2><h3 id="在nginx-01上配置"><a href="#在nginx-01上配置" class="headerlink" title="在nginx_01上配置"></a>在nginx_01上配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/keepalived/keepalived.conf /etc/keepalived/keepalived.conf.bak</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/keepalived/keepalived.conf</span><br></pre></td></tr></table></figure><h3 id="修改成如下内容"><a href="#修改成如下内容" class="headerlink" title="修改成如下内容"></a>修改成如下内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">! Configuration File for keepalived</span><br><span class="line">global_defs &#123;</span><br><span class="line">    router_id nginx_server_1</span><br><span class="line">&#125;</span><br><span class="line">vrrp_script chk_nginx &#123;</span><br><span class="line">    script &quot;/etc/keepalived/nginx_check.sh&quot;</span><br><span class="line">    interval 2</span><br><span class="line">    weight 20</span><br><span class="line">    !weight为正数</span><br><span class="line">    !如果脚本执行结果为0,,Master:weight+priority&gt;Backup:weight+priority(不切换)</span><br><span class="line">    !如果脚本执行结果不为0,Master:priority&lt;Backup:priority+weight(切换)</span><br><span class="line">    !weight为负数</span><br><span class="line">    !如果脚本执行结果为0,,Master:priority&gt;Backup:priority(不切换)</span><br><span class="line">    !如果脚本执行结果不为0,Master:priority+weight&lt;Backup:priority(切换)</span><br><span class="line">    !一般来说,weight的绝对值要大于Master和Backup的priority之差</span><br><span class="line">&#125;</span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    state MASTER</span><br><span class="line">    interface ens33 !网卡接口地址</span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    mcast_src_ip 192.168.59.128 !nginx01 ip</span><br><span class="line">    priority 100</span><br><span class="line">    nopreempt</span><br><span class="line">    advert_int 1</span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass 1111 !认密码 两台nginx密码要一致</span><br><span class="line">    &#125;</span><br><span class="line">    track_script &#123;</span><br><span class="line">        chk_nginx</span><br><span class="line">    &#125;</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        192.168.59.222/24 !漂浮ip 可以有多个 回车隔开</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="在nginx-02上配置"><a href="#在nginx-02上配置" class="headerlink" title="在nginx_02上配置"></a>在nginx_02上配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/keepalived/keepalived.conf /etc/keepalived/keepalived.conf.bak</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/keepalived/keepalived.conf</span><br></pre></td></tr></table></figure><h4 id="修改成如下内容-1"><a href="#修改成如下内容-1" class="headerlink" title="修改成如下内容"></a>修改成如下内容</h4><h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><h6 id="state-和主不一样，是BACKUP"><a href="#state-和主不一样，是BACKUP" class="headerlink" title="state 和主不一样，是BACKUP"></a>state 和主不一样，是BACKUP</h6><h6 id="route-id-和主不一样"><a href="#route-id-和主不一样" class="headerlink" title="route_id 和主不一样"></a>route_id 和主不一样</h6><h6 id="priority-小于主机"><a href="#priority-小于主机" class="headerlink" title="priority 小于主机"></a>priority 小于主机</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">! Configuration File for keepalived</span><br><span class="line">global_defs &#123;</span><br><span class="line">    router_id nginx_server_2</span><br><span class="line">&#125;</span><br><span class="line">vrrp_script chk_nginx &#123;</span><br><span class="line">    script &quot;/etc/keepalived/nginx_check.sh&quot;</span><br><span class="line">    interval 2</span><br><span class="line">    weight 20</span><br><span class="line">    !weight为正数</span><br><span class="line">    !如果脚本执行结果为0,,Master:weight+priority&gt;Backup:weight+priority(不切换)</span><br><span class="line">    !如果脚本执行结果不为0,Master:priority&lt;Backup:priority+weight(切换)</span><br><span class="line">    !weight为负数</span><br><span class="line">    !如果脚本执行结果为0,,Master:priority&gt;Backup:priority(不切换)</span><br><span class="line">    !如果脚本执行结果不为0,Master:priority+weight&lt;Backup:priority(切换)</span><br><span class="line">    !一般来说,weight的绝对值要大于Master和Backup的priority之差</span><br><span class="line">&#125;</span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    state BACKUP</span><br><span class="line">    interface ens33</span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    mcast_src_ip 192.168.59.129</span><br><span class="line">    priority 90</span><br><span class="line">    nopreempt</span><br><span class="line">    advert_int 1</span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass 1111</span><br><span class="line">    &#125;</span><br><span class="line">    track_script &#123;</span><br><span class="line">        chk_nginx</span><br><span class="line">    &#125;</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        192.168.59.222/24</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="4-检查nginx进程的代码-当nginx进程奔溃后，keepalived自动启动nginx"><a href="#4-检查nginx进程的代码-当nginx进程奔溃后，keepalived自动启动nginx" class="headerlink" title="4.检查nginx进程的代码,当nginx进程奔溃后，keepalived自动启动nginx"></a>4.检查nginx进程的代码,当nginx进程奔溃后，keepalived自动启动nginx</h2><h3 id="在nginx-01和nginx-02上都配置一遍"><a href="#在nginx-01和nginx-02上都配置一遍" class="headerlink" title="在nginx_01和nginx_02上都配置一遍"></a>在nginx_01和nginx_02上都配置一遍</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/keepalived/nginx_check.sh</span><br></pre></td></tr></table></figure><h4 id="添加如下代码"><a href="#添加如下代码" class="headerlink" title="添加如下代码"></a>添加如下代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">A=`ps -C nginx --no-header |wc -l`</span><br><span class="line">if [ $A -eq 0 ];then</span><br><span class="line">    /usr/sbin/nginx</span><br><span class="line">    sleep 2</span><br><span class="line">    if [ `ps -C nginx --no-header |wc -l` -eq 0 ];then</span><br><span class="line">        killall keepalived</span><br><span class="line">    fi</span><br><span class="line">fi</span><br></pre></td></tr></table></figure><h2 id="5-改成可执行文件"><a href="#5-改成可执行文件" class="headerlink" title="5.改成可执行文件"></a>5.改成可执行文件</h2><h3 id="在nginx-01和nginx-02上都配置一遍-1"><a href="#在nginx-01和nginx-02上都配置一遍-1" class="headerlink" title="在nginx_01和nginx_02上都配置一遍"></a>在nginx_01和nginx_02上都配置一遍</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +xxx /etc/keepalived/nginx_check.sh</span><br></pre></td></tr></table></figure><h2 id="6-启动和开机自启动"><a href="#6-启动和开机自启动" class="headerlink" title="6.启动和开机自启动"></a>6.启动和开机自启动</h2><h3 id="在nginx-01和nginx-02上都配置一遍-2"><a href="#在nginx-01和nginx-02上都配置一遍-2" class="headerlink" title="在nginx_01和nginx_02上都配置一遍"></a>在nginx_01和nginx_02上都配置一遍</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start keepalived //启动</span><br><span class="line">systemctl enable keepalived //开机自启动</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> Nginx </category>
+          
+          <category> Keepalived </category>
+          
+          <category> Centos 7 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Centos 7 </tag>
+            
+            <tag> Hexo </tag>
+            
+            <tag> IntelliJ IDEA </tag>
+            
+            <tag> Git </tag>
+            
+            <tag> Github </tag>
+            
+            <tag> Node.js </tag>
+            
+            <tag> Nginx </tag>
+            
+            <tag> Keepalived </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Centos7 Nginx 安装</title>
       <link href="/2018/02/26/Centos7%20Nginx%20%E5%AE%89%E8%A3%85/"/>
       <content type="html"><![CDATA[<h3 id="我使用centos7X64最小化安装"><a href="#我使用centos7X64最小化安装" class="headerlink" title="我使用centos7X64最小化安装"></a>我使用centos7X64最小化安装</h3><h3 id="CentOS-7-x86-64-Minimal-1708"><a href="#CentOS-7-x86-64-Minimal-1708" class="headerlink" title="CentOS-7-x86_64-Minimal-1708"></a>CentOS-7-x86_64-Minimal-1708</h3><h2 id="1-关闭firewall："><a href="#1-关闭firewall：" class="headerlink" title="1.关闭firewall："></a>1.关闭firewall：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service #停止firewall</span><br><span class="line">systemctl disable firewalld.service #禁止firewall开机启动</span><br><span class="line">firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# firewall-cmd --state</span><br><span class="line">not running</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure><h2 id="2-安装wget"><a href="#2-安装wget" class="headerlink" title="2.安装wget"></a>2.安装wget</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br></pre></td></tr></table></figure><h2 id="3-安装nginx-编译环境"><a href="#3-安装nginx-编译环境" class="headerlink" title="3.安装nginx 编译环境"></a>3.安装nginx 编译环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc-c++</span><br><span class="line">yum install -y pcre pcre-devel</span><br><span class="line">yum install -y zlib zlib-devel</span><br><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure><h2 id="4-安装nginx"><a href="#4-安装nginx" class="headerlink" title="4.安装nginx"></a>4.安装nginx</h2><h3 id="官方查看最新稳定版本-官网链接直达"><a href="#官方查看最新稳定版本-官网链接直达" class="headerlink" title="官方查看最新稳定版本  官网链接直达"></a>官方查看最新稳定版本  <a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">官网链接直达</a></h3><h3 id="我现在最新稳定版本是-nginx-1-12-2"><a href="#我现在最新稳定版本是-nginx-1-12-2" class="headerlink" title="我现在最新稳定版本是:nginx-1.12.2"></a>我现在最新稳定版本是:nginx-1.12.2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://nginx.org/download/nginx-1.12.2.tar.gz</span><br></pre></td></tr></table></figure><h2 id="5-解压"><a href="#5-解压" class="headerlink" title="5.解压"></a>5.解压</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.12.2.tar.gz</span><br><span class="line">cd nginx-1.12.2</span><br></pre></td></tr></table></figure><h2 id="6-配置nginx"><a href="#6-配置nginx" class="headerlink" title="6.配置nginx"></a>6.配置nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure><h2 id="7-编译安装"><a href="#7-编译安装" class="headerlink" title="7.编译安装"></a>7.编译安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure><h2 id="8-启动、停止、重启nginx"><a href="#8-启动、停止、重启nginx" class="headerlink" title="8.启动、停止、重启nginx"></a>8.启动、停止、重启nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin/</span><br><span class="line">./nginx </span><br><span class="line">./nginx -s reload #重新加载配置文件</span><br><span class="line">./nginx -s quit #:推荐 待nginx进程处理任务完毕进行停止</span><br><span class="line">./nginx -s stop #:先查出nginx进程id再使用kill命令强制杀掉进程。</span><br></pre></td></tr></table></figure><h2 id="9-查询nginx进程："><a href="#9-查询nginx进程：" class="headerlink" title="9.查询nginx进程："></a>9.查询nginx进程：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep nginx</span><br></pre></td></tr></table></figure><h2 id="10-开机自启动"><a href="#10-开机自启动" class="headerlink" title="10.开机自启动"></a>10.开机自启动</h2><h3 id="在rc-local增加启动代码就可以了。"><a href="#在rc-local增加启动代码就可以了。" class="headerlink" title="在rc.local增加启动代码就可以了。"></a>在rc.local增加启动代码就可以了。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rc.local</span><br></pre></td></tr></table></figure><h3 id="底部增加一行-usr-local-nginx-sbin-nginx"><a href="#底部增加一行-usr-local-nginx-sbin-nginx" class="headerlink" title="底部增加一行 /usr/local/nginx/sbin/nginx"></a>底部增加一行 /usr/local/nginx/sbin/nginx</h3><h3 id="设置执行权限："><a href="#设置执行权限：" class="headerlink" title="设置执行权限："></a>设置执行权限：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 /etc/rc.local</span><br></pre></td></tr></table></figure>]]></content>
@@ -18,8 +56,6 @@
       
         <tags>
             
-            <tag> Nginx </tag>
-            
             <tag> Centos 7 </tag>
             
             <tag> Hexo </tag>
@@ -31,6 +67,8 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
+            
+            <tag> Nginx </tag>
             
         </tags>
       
@@ -194,7 +232,15 @@
       
         <tags>
             
+            <tag> Docker </tag>
+            
+            <tag> MySQL </tag>
+            
             <tag> Centos 7 </tag>
+            
+            <tag> 内部连接 </tag>
+            
+            <tag> 外部连接 </tag>
             
             <tag> Hexo </tag>
             
@@ -205,14 +251,6 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
-            
-            <tag> Docker </tag>
-            
-            <tag> MySQL </tag>
-            
-            <tag> 内部连接 </tag>
-            
-            <tag> 外部连接 </tag>
             
         </tags>
       
@@ -236,6 +274,8 @@
       
         <tags>
             
+            <tag> Docker </tag>
+            
             <tag> Hexo </tag>
             
             <tag> IntelliJ IDEA </tag>
@@ -245,8 +285,6 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
-            
-            <tag> Docker </tag>
             
             <tag> Tomcat，Centos 7 </tag>
             
