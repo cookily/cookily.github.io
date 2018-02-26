@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="樑仔实践学习笔记">
 <meta property="og:description" content="我使用centos7X64最小化安装CentOS-7-x86_64-Minimal-1708 没装jdk的同学，请移步【centos7 安装 jdk8】的文章 1.关闭firewall：123systemctl stop firewalld.service #停止firewallsystemctl disable firewalld.service #禁止firewall开机启动firewall-">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-26T07:49:14.542Z">
+<meta property="og:updated_time" content="2018-02-26T07:51:25.918Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos7 安装 Tomcat8">
 <meta name="twitter:description" content="我使用centos7X64最小化安装CentOS-7-x86_64-Minimal-1708 没装jdk的同学，请移步【centos7 安装 jdk8】的文章 1.关闭firewall：123systemctl stop firewalld.service #停止firewallsystemctl disable firewalld.service #禁止firewall开机启动firewall-">
@@ -143,7 +143,7 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p><strong><em>我使用centos7X64最小化安装</em></strong><br><strong>CentOS-7-x86_64-Minimal-1708</strong></p>
+            <p><strong>我使用centos7X64最小化安装</strong><br><strong>CentOS-7-x86_64-Minimal-1708</strong></p>
 <p><strong>没装jdk的同学，请移步【<a href="http://code.cookily.cn/2018/02/26/Centos7%20%E5%AE%89%E8%A3%85%20%20jdk8/">centos7 安装 jdk8</a>】的文章</strong></p>
 <h2 id="1-关闭firewall："><a href="#1-关闭firewall：" class="headerlink" title="1.关闭firewall："></a>1.关闭firewall：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service #停止firewall</span><br><span class="line">systemctl disable firewalld.service #禁止firewall开机启动</span><br><span class="line">firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# firewall-cmd --state</span><br><span class="line">not running</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure>
@@ -161,7 +161,7 @@
 <h2 id="9-tomcat8常见命令"><a href="#9-tomcat8常见命令" class="headerlink" title="9.tomcat8常见命令"></a>9.tomcat8常见命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl start tomcat8.service    //启动tomcat</span><br><span class="line"></span><br><span class="line">systemctl stop tomcat8.service    //关闭tomcat   </span><br><span class="line"></span><br><span class="line">systemctl restart tomcat8.service   //重启tomcat </span><br><span class="line"></span><br><span class="line">systemctl status tomcat8.service   //查看状态tomcat</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月26日 15:49</p>
+        <p>最后更新： 2018年02月26日 15:51</p>
         <p>原始链接： <a class="post-url" href="/2018/02/26/Centos7 安装 Tomcat8/" title="Centos7 安装 Tomcat8">http://code.cookily.cn/2018/02/26/Centos7 安装 Tomcat8/</a></p>
         <footer>
             <a href="http://code.cookily.cn">
@@ -287,19 +287,9 @@
     </aside>
 <nav id="article-nav">
   
-    <a href="/2018/02/26/Centos7 安装 Tomcat8 集群/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          Centos7 安装 Tomcat8 集群
-        
-      </span>
-    </a>
   
-  
-    <a href="/2018/02/26/Centos7 Keepalived+Nginx 热备/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Centos7 Keepalived+Nginx 热备</span>
+    <a href="/2018/02/26/Centos7 安装 Tomcat8 集群/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Centos7 安装 Tomcat8 集群</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
