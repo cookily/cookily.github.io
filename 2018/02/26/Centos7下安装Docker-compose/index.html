@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>mysql 用户创建+密码修改+删除用户+角色分配 | 樑仔实践学习笔记</title>
+  <title>Centos 7 下安装 Docker-compose | 樑仔实践学习笔记</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
   
     <meta name="keywords" content="学习笔记,开发笔记，实践笔记，实践">
   
-  <meta name="description" content="12345678当前mysql版本mysql&amp;gt; select version();+------------+| version()  |+------------+| 5.6.38 |+------------+1 row in set (0.00 sec) 1.创建用户:1CREATE USER &amp;apos;username&amp;apos;@&amp;apos;host&amp;apos; IDENTIFI">
-<meta name="keywords" content="Hexo,IntelliJ IDEA,Git,Github,Node.js,mysql">
+  <meta name="description" content="系统:Centos 7 64bit PIP 安装 docker-compose 要先安装python-pip包，所以我们先安装装python-pip 1、首先检查linux有没有安装python-pip包，直接执行1yum install python-pip 2、没有python-pip包就执行命令1yum -y install epel-release 3、执行成功之后，再次执行1yum in">
+<meta name="keywords" content="Hexo,IntelliJ IDEA,Git,Github,Node.js,Docker，Centos 7,Docker-compose">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql 用户创建+密码修改+删除用户+角色分配">
-<meta property="og:url" content="http://code.cookily.cn/2018/02/26/mysql 用户创建+密码修改+删除用户+角色分配/index.html">
+<meta property="og:title" content="Centos 7 下安装 Docker-compose">
+<meta property="og:url" content="http://code.cookily.cn/2018/02/26/Centos7下安装Docker-compose/index.html">
 <meta property="og:site_name" content="樑仔实践学习笔记">
-<meta property="og:description" content="12345678当前mysql版本mysql&amp;gt; select version();+------------+| version()  |+------------+| 5.6.38 |+------------+1 row in set (0.00 sec) 1.创建用户:1CREATE USER &amp;apos;username&amp;apos;@&amp;apos;host&amp;apos; IDENTIFI">
+<meta property="og:description" content="系统:Centos 7 64bit PIP 安装 docker-compose 要先安装python-pip包，所以我们先安装装python-pip 1、首先检查linux有没有安装python-pip包，直接执行1yum install python-pip 2、没有python-pip包就执行命令1yum -y install epel-release 3、执行成功之后，再次执行1yum in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-26T08:10:09.467Z">
+<meta property="og:updated_time" content="2018-02-26T08:01:25.421Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql 用户创建+密码修改+删除用户+角色分配">
-<meta name="twitter:description" content="12345678当前mysql版本mysql&amp;gt; select version();+------------+| version()  |+------------+| 5.6.38 |+------------+1 row in set (0.00 sec) 1.创建用户:1CREATE USER &amp;apos;username&amp;apos;@&amp;apos;host&amp;apos; IDENTIFI">
+<meta name="twitter:title" content="Centos 7 下安装 Docker-compose">
+<meta name="twitter:description" content="系统:Centos 7 64bit PIP 安装 docker-compose 要先安装python-pip包，所以我们先安装装python-pip 1、首先检查linux有没有安装python-pip包，直接执行1yum install python-pip 2、没有python-pip包就执行命令1yum -y install epel-release 3、执行成功之后，再次执行1yum in">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -109,12 +109,12 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-mysql 用户创建+密码修改+删除用户+角色分配" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Centos7下安装Docker-compose" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         <h1 class="post-title" itemprop="name">
-      mysql 用户创建+密码修改+删除用户+角色分配
+      Centos 7 下安装 Docker-compose
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -122,7 +122,11 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/mysql/">mysql</a>
+                      <a href="/categories/Docker/">Docker</a>
+                  
+                      <a href="/categories/Docker-compose/">Docker-compose</a>
+                  
+                      <a href="/categories/Centos7/">Centos 7</a>
                   
               </li>
           
@@ -141,31 +145,20 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">当前mysql版本</span><br><span class="line">mysql&gt; select version();</span><br><span class="line">+------------+</span><br><span class="line">| version()  |</span><br><span class="line">+------------+</span><br><span class="line">| 5.6.38 |</span><br><span class="line">+------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-<h2 id="1-创建用户"><a href="#1-创建用户" class="headerlink" title="1.创建用户:"></a>1.创建用户:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &apos;username&apos;@&apos;host&apos; IDENTIFIED BY &apos;password&apos;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username：你将创建的用户名</span><br><span class="line">host：指定该用户在哪个主机上可以登陆，如果是本地用户可用localhost，如果想让该用户可以从任意远程主机登陆，可以使用通配符%</span><br><span class="line">password：该用户的登陆密码，密码可以为空，如果为空则该用户可以不需要密码登陆服务器</span><br></pre></td></tr></table></figure>
-<p><strong>举个栗子:</strong><br><strong>创建张三用户，密码123456，可以从任意远程主机登陆(%)</strong><br><strong>如果是本地用户可用(localhost)</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &apos;zhangsan&apos;@&apos;%&apos; IDENTIFIED BY &apos;123456&apos;;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="2-授权"><a href="#2-授权" class="headerlink" title="2. 授权:"></a>2. 授权:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT privileges ON databasename.tablename TO &apos;username&apos;@&apos;host&apos;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL</span><br><span class="line">databasename：数据库名</span><br><span class="line">tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用*表示，如*.*</span><br></pre></td></tr></table></figure>
-<p><strong>举个栗子:</strong><br><strong>给予zhangsan用户,在任意远程主机对bilibili库的a表select和insert权限</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT SELECT, INSERT ON bilibili.a TO &apos;zhangsan&apos;@&apos;%&apos;;</span><br></pre></td></tr></table></figure></p>
-<p><strong>给予zhangsan用户,在任意远程主机所有库所有权限</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL ON *.* TO &apos;zhangsan&apos;@&apos;%&apos;;</span><br></pre></td></tr></table></figure></p>
-<p><strong>如果授予权限要传递，那就在屁股跟上WITH GRANT OPTION;</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL ON *.* TO &apos;zhangsan&apos;@&apos;%&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
-<h2 id="3-设置与更改用户密码"><a href="#3-设置与更改用户密码" class="headerlink" title="3.设置与更改用户密码"></a>3.设置与更改用户密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET PASSWORD FOR &apos;username&apos;@&apos;host&apos; = PASSWORD(&apos;newpassword&apos;);</span><br></pre></td></tr></table></figure>
-<p><strong>如果是当前登陆用户用也可以使用：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET PASSWORD = PASSWORD(&quot;newpassword&quot;);</span><br></pre></td></tr></table></figure></p>
-<h2 id="4-撤销用户权限"><a href="#4-撤销用户权限" class="headerlink" title="4. 撤销用户权限"></a>4. 撤销用户权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REVOKE privilege ON databasename.tablename FROM &apos;username&apos;@&apos;host&apos;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL</span><br><span class="line">databasename：数据库名</span><br><span class="line">tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用*表示，如*.*</span><br></pre></td></tr></table></figure>
-<p><strong>举个栗子:</strong><br><strong>取消zhangsan对bilibili库的a表select权限</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REVOKE SELECT ON bilibili.a FROM &apos;zhangsan&apos;@&apos;%&apos;;</span><br></pre></td></tr></table></figure>
-<p><strong>假如你在给用户‘zhangsan‘@’%’授权的时候是这样的（或类似的）：GRANT SELECT ON bilibili.a TO ‘zhangsan‘@’%’</strong><br><strong>则在使用REVOKE SELECT ON <em>.</em> FROM ‘zhangsan‘@’%’;命令并不能撤销该用户对test数据库中user表的SELECT 操作。</strong><br><strong>相反，如果授权使用的是GRANT SELECT ON <em>.</em> TO ‘zhangsan‘@’%’;则REVOKE SELECT ON bilibili.a FROM ‘zhangsan‘@’%’;命令也不能撤销该用户对test数据库中user表的Select权限。</strong><br><strong>具体信息可以用命令SHOW GRANTS FOR ‘zhangsan‘@’%’; 查看。</strong></p>
-<h2 id="5-然后删除用户"><a href="#5-然后删除用户" class="headerlink" title="5.然后删除用户"></a>5.然后删除用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP USER &apos;username&apos;@&apos;host&apos;;</span><br></pre></td></tr></table></figure>
-<p><strong>举个栗子:</strong><br><strong>删除zhangsan用户</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP USER &apos;zhangsan&apos;@&apos;%&apos;;</span><br></pre></td></tr></table></figure>
+            <p><strong>系统:Centos 7 64bit</strong></p>
+<p><strong>PIP 安装 docker-compose 要先安装python-pip包，所以我们先安装装python-pip</strong></p>
+<h2 id="1、首先检查linux有没有安装python-pip包，直接执行"><a href="#1、首先检查linux有没有安装python-pip包，直接执行" class="headerlink" title="1、首先检查linux有没有安装python-pip包，直接执行"></a>1、首先检查linux有没有安装python-pip包，直接执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install python-pip</span><br></pre></td></tr></table></figure>
+<h2 id="2、没有python-pip包就执行命令"><a href="#2、没有python-pip包就执行命令" class="headerlink" title="2、没有python-pip包就执行命令"></a>2、没有python-pip包就执行命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br></pre></td></tr></table></figure>
+<h2 id="3、执行成功之后，再次执行"><a href="#3、执行成功之后，再次执行" class="headerlink" title="3、执行成功之后，再次执行"></a>3、执行成功之后，再次执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install python-pip</span><br></pre></td></tr></table></figure>
+<h2 id="4、对安装好的pip进行升级"><a href="#4、对安装好的pip进行升级" class="headerlink" title="4、对安装好的pip进行升级"></a>4、对安装好的pip进行升级</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+<h2 id="5、安装docker-compose命令"><a href="#5、安装docker-compose命令" class="headerlink" title="5、安装docker-compose命令"></a>5、安装docker-compose命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U docker-compose</span><br></pre></td></tr></table></figure>
+<h2 id="6、安装成功后，可以查看-docker-compose-命令的用法"><a href="#6、安装成功后，可以查看-docker-compose-命令的用法" class="headerlink" title="6、安装成功后，可以查看 docker-compose 命令的用法"></a>6、安装成功后，可以查看 docker-compose 命令的用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose -h</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">[root@docker2 haproxy]# docker-compose -h</span><br><span class="line">Define and run multi-container applications with Docker.</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  docker-compose [-f &lt;arg&gt;...] [options] [COMMAND] [ARGS...]</span><br><span class="line">  docker-compose -h|--help</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -f, --file FILE             Specify an alternate compose file (default: docker-compose.yml)</span><br><span class="line">  -p, --project-name NAME     Specify an alternate project name (default: directory name)</span><br><span class="line">  --verbose                   Show more output</span><br><span class="line">  --no-ansi                   Do not print ANSI control characters</span><br><span class="line">  -v, --version               Print version and exit</span><br><span class="line">  -H, --host HOST             Daemon socket to connect to</span><br><span class="line"></span><br><span class="line">  --tls                       Use TLS; implied by --tlsverify</span><br><span class="line">  --tlscacert CA_PATH         Trust certs signed only by this CA</span><br><span class="line">  --tlscert CLIENT_CERT_PATH  Path to TLS certificate file</span><br><span class="line">  --tlskey TLS_KEY_PATH       Path to TLS key file</span><br><span class="line">  --tlsverify                 Use TLS and verify the remote</span><br><span class="line">  --skip-hostname-check       Don&apos;t check the daemon&apos;s hostname against the name specified</span><br><span class="line">                              in the client certificate (for example if your docker host</span><br><span class="line">                              is an IP address)</span><br><span class="line">  --project-directory PATH    Specify an alternate working directory</span><br><span class="line">                              (default: the path of the Compose file)</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  build              Build or rebuild services</span><br><span class="line">  bundle             Generate a Docker bundle from the Compose file</span><br><span class="line">  config             Validate and view the Compose file</span><br><span class="line">  create             Create services</span><br><span class="line">  down               Stop and remove containers, networks, images, and volumes</span><br><span class="line">  events             Receive real time events from containers</span><br><span class="line">  exec               Execute a command in a running container</span><br><span class="line">  help               Get help on a command</span><br><span class="line">  images             List images</span><br><span class="line">  kill               Kill containers</span><br><span class="line">  logs               View output from containers</span><br><span class="line">  pause              Pause services</span><br><span class="line">  port               Print the public port for a port binding</span><br><span class="line">  ps                 List containers</span><br><span class="line">  pull               Pull service images</span><br><span class="line">  push               Push service images</span><br><span class="line">  restart            Restart services</span><br><span class="line">  rm                 Remove stopped containers</span><br><span class="line">  run                Run a one-off command</span><br><span class="line">  scale              Set number of containers for a service</span><br><span class="line">  start              Start services</span><br><span class="line">  stop               Stop services</span><br><span class="line">  top                Display the running processes</span><br><span class="line">  unpause            Unpause services</span><br><span class="line">  up                 Create and start containers</span><br><span class="line">  version            Show the Docker-Compose version information</span><br></pre></td></tr></table></figure>
+<h2 id="7、可以添加-bash-补全命令"><a href="#7、可以添加-bash-补全命令" class="headerlink" title="7、可以添加 bash 补全命令"></a>7、可以添加 bash 补全命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/docker/compose/1.2.0/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月26日 16:10</p>
-        <p>原始链接： <a class="post-url" href="/2018/02/26/mysql 用户创建+密码修改+删除用户+角色分配/" title="mysql 用户创建+密码修改+删除用户+角色分配">http://code.cookily.cn/2018/02/26/mysql 用户创建+密码修改+删除用户+角色分配/</a></p>
+        <p>最后更新： 2018年02月26日 16:01</p>
+        <p>原始链接： <a class="post-url" href="/2018/02/26/Centos7下安装Docker-compose/" title="Centos 7 下安装 Docker-compose">http://code.cookily.cn/2018/02/26/Centos7下安装Docker-compose/</a></p>
         <footer>
             <a href="http://code.cookily.cn">
                 <img src="/images/logo.png" alt="樑仔">
@@ -217,7 +210,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://code.cookily.cn/2018/02/26/mysql 用户创建+密码修改+删除用户+角色分配/&title=《mysql 用户创建+密码修改+删除用户+角色分配》 — 樑仔实践学习笔记&pic=http://code.cookily.cnimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://code.cookily.cn/2018/02/26/Centos7下安装Docker-compose/&title=《Centos 7 下安装 Docker-compose》 — 樑仔实践学习笔记&pic=http://code.cookily.cnimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -227,22 +220,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://code.cookily.cn/2018/02/26/mysql 用户创建+密码修改+删除用户+角色分配/&title=《mysql 用户创建+密码修改+删除用户+角色分配》 — 樑仔实践学习笔记&source=学习笔记，实践笔记" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://code.cookily.cn/2018/02/26/Centos7下安装Docker-compose/&title=《Centos 7 下安装 Docker-compose》 — 樑仔实践学习笔记&source=学习笔记，实践笔记" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://code.cookily.cn/2018/02/26/mysql 用户创建+密码修改+删除用户+角色分配/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://code.cookily.cn/2018/02/26/Centos7下安装Docker-compose/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql 用户创建+密码修改+删除用户+角色分配》 — 樑仔实践学习笔记&url=http://code.cookily.cn/2018/02/26/mysql 用户创建+密码修改+删除用户+角色分配/&via=http://code.cookily.cn" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Centos 7 下安装 Docker-compose》 — 樑仔实践学习笔记&url=http://code.cookily.cn/2018/02/26/Centos7下安装Docker-compose/&via=http://code.cookily.cn" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://code.cookily.cn/2018/02/26/mysql 用户创建+密码修改+删除用户+角色分配/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://code.cookily.cn/2018/02/26/Centos7下安装Docker-compose/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -252,7 +245,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://code.cookily.cn/2018/02/26/mysql 用户创建+密码修改+删除用户+角色分配/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://code.cookily.cn/2018/02/26/Centos7下安装Docker-compose/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -272,7 +265,9 @@
       
     <a href="/tags/Node.js/" class="color3">Node.js</a>
       
-    <a href="/tags/mysql/" class="color1">mysql</a>
+    <a href="/tags/Docker，Centos7/" class="color1">Docker，Centos 7</a>
+      
+    <a href="/tags/Docker-compose/" class="color5">Docker-compose</a>
       
   </li>
         </ul>
@@ -283,14 +278,24 @@
 
 <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-创建用户"><span class="post-toc-text">1.创建用户:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-授权"><span class="post-toc-text">2. 授权:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-设置与更改用户密码"><span class="post-toc-text">3.设置与更改用户密码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-撤销用户权限"><span class="post-toc-text">4. 撤销用户权限</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-然后删除用户"><span class="post-toc-text">5.然后删除用户</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、首先检查linux有没有安装python-pip包，直接执行"><span class="post-toc-text">1、首先检查linux有没有安装python-pip包，直接执行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、没有python-pip包就执行命令"><span class="post-toc-text">2、没有python-pip包就执行命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、执行成功之后，再次执行"><span class="post-toc-text">3、执行成功之后，再次执行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、对安装好的pip进行升级"><span class="post-toc-text">4、对安装好的pip进行升级</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、安装docker-compose命令"><span class="post-toc-text">5、安装docker-compose命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、安装成功后，可以查看-docker-compose-命令的用法"><span class="post-toc-text">6、安装成功后，可以查看 docker-compose 命令的用法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7、可以添加-bash-补全命令"><span class="post-toc-text">7、可以添加 bash 补全命令</span></a></li></ol>
         </nav>
     </aside>
 <nav id="article-nav">
   
+    <a href="/2018/02/26/Centos7下docket安装Tomcat和使用/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Centos 7 下 docker 安装 tomcat 和 使用
+        
+      </span>
+    </a>
   
-    <a href="/2018/02/26/Centos7安装最新Docker并实现阿里云加速网易加速/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Centos 7 安装最新 Docker 并实现阿里云加速 网易加速</span>
+  
+    <a href="/2018/02/26/Centos7下Keepalived+Nginx热备/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Centos7 Keepalived+Nginx 热备</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -298,7 +303,7 @@
 
 
     
-        <div id="SOHUCS" sid="mysql 用户创建+密码修改+删除用户+角色分配"></div>
+        <div id="SOHUCS" sid="Centos7下安装Docker-compose"></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cyttVgtST';
