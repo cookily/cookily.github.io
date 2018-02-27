@@ -90,15 +90,7 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
-            <tag> MySQL </tag>
-            
             <tag> Centos 7 </tag>
-            
-            <tag> 内部连接 </tag>
-            
-            <tag> 外部连接 </tag>
             
             <tag> Hexo </tag>
             
@@ -109,6 +101,14 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
+            
+            <tag> Docker </tag>
+            
+            <tag> MySQL </tag>
+            
+            <tag> 内部连接 </tag>
+            
+            <tag> 外部连接 </tag>
             
         </tags>
       
@@ -130,6 +130,8 @@
       
         <tags>
             
+            <tag> Nginx </tag>
+            
             <tag> Centos 7 </tag>
             
             <tag> Hexo </tag>
@@ -141,8 +143,6 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
-            
-            <tag> Nginx </tag>
             
         </tags>
       
@@ -200,8 +200,6 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
             <tag> Hexo </tag>
             
             <tag> IntelliJ IDEA </tag>
@@ -211,6 +209,8 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
+            
+            <tag> Docker </tag>
             
             <tag> Tomcat，Centos 7 </tag>
             
@@ -272,6 +272,8 @@
       
         <tags>
             
+            <tag> Nginx </tag>
+            
             <tag> Centos 7 </tag>
             
             <tag> Hexo </tag>
@@ -283,8 +285,6 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
-            
-            <tag> Nginx </tag>
             
             <tag> Keepalived </tag>
             
