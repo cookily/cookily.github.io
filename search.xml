@@ -268,8 +268,6 @@
       
         <tags>
             
-            <tag> Tomcat8 </tag>
-            
             <tag> Centos 7 </tag>
             
             <tag> Hexo </tag>
@@ -281,6 +279,8 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
+            
+            <tag> Tomcat8 </tag>
             
         </tags>
       
@@ -302,6 +302,8 @@
       
         <tags>
             
+            <tag> Tomcat8 集群 </tag>
+            
             <tag> Centos 7 </tag>
             
             <tag> Hexo </tag>
@@ -313,8 +315,6 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
-            
-            <tag> Tomcat8 集群 </tag>
             
         </tags>
       

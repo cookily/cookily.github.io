@@ -271,8 +271,6 @@
         <title>Centos7 安装 Tomcat8</title>
         <pubTime>2018-02-26T07:51:25.917Z</pubTime>
         
-        <tag>Tomcat8</tag>
-         
         <tag>Centos 7</tag>
          
         <tag>Hexo</tag>
@@ -284,6 +282,8 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
+         
+        <tag>Tomcat8</tag>
          
          
            
@@ -306,6 +306,8 @@
         <title>Centos7 安装 Tomcat8 集群</title>
         <pubTime>2018-02-26T07:49:14.586Z</pubTime>
         
+        <tag>Tomcat8 集群</tag>
+         
         <tag>Centos 7</tag>
          
         <tag>Hexo</tag>
@@ -317,8 +319,6 @@
         <tag>Github</tag>
          
         <tag>Node.js</tag>
-         
-        <tag>Tomcat8 集群</tag>
          
          
            
