@@ -52,51 +52,6 @@
   </entry>
   
   <entry>
-    <title>Centos 7 安装最新 Docker 并实现阿里云加速 网易加速</title>
-    <link href="http://code.cookily.cn/2018/02/26/fghhsdhf/"/>
-    <id>http://code.cookily.cn/2018/02/26/fghhsdhf/</id>
-    <published>2018-02-26T08:06:05.010Z</published>
-    <updated>2018-02-26T08:06:05.010Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>系统:Centos 7 64bit</strong><br><strong>直接用yum install docker -y安装的docker版本为1.12，但是docker发展很快，现在都17.12.0了。docker-ce是指docker的社区版</strong></p><h2 id="1-首先卸载旧版本docker及相关依赖"><a href="#1-首先卸载旧版本docker及相关依赖" class="headerlink" title="1.首先卸载旧版本docker及相关依赖"></a>1.首先卸载旧版本docker及相关依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove docker docker-common container-selinux docker-selinux docker-engine</span><br></pre></td></tr></table></figure><h2 id="2-安装-yum-utils，它提供了-yum-config-manager，可用来管理yum源"><a href="#2-安装-yum-utils，它提供了-yum-config-manager，可用来管理yum源" class="headerlink" title="2.安装 yum-utils，它提供了 yum-config-manager，可用来管理yum源"></a>2.安装 yum-utils，它提供了 yum-config-manager，可用来管理yum源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils</span><br></pre></td></tr></table></figure><h2 id="3-添加yum源"><a href="#3-添加yum源" class="headerlink" title="3.添加yum源"></a>3.添加yum源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure><h2 id="4-更新yum索引"><a href="#4-更新yum索引" class="headerlink" title="4.更新yum索引"></a>4.更新yum索引</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum makecache fast</span><br></pre></td></tr></table></figure><h2 id="5-安装-docker-ce"><a href="#5-安装-docker-ce" class="headerlink" title="5.安装 docker-ce"></a>5.安装 docker-ce</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install docker-ce</span><br></pre></td></tr></table></figure><h2 id="6-启动-docker"><a href="#6-启动-docker" class="headerlink" title="6.启动 docker"></a>6.启动 docker</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure><h2 id="7-验证是否安装成功"><a href="#7-验证是否安装成功" class="headerlink" title="7.验证是否安装成功"></a>7.验证是否安装成功</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure><h2 id="8-阿里云加速"><a href="#8-阿里云加速" class="headerlink" title="8.阿里云加速"></a>8.阿里云加速</h2><p><strong>8.1首先注册开通阿里云开发者帐号</strong><br><strong><a href="https://dev.aliyun.com/search.html" target="_blank" rel="noopener">注册开通阿里云开发者</a></strong></p><p><strong>8.2登录后在个人中心点击加速器，同时会给出加速器地址。</strong></p><p><strong>8.3选择对应的系统并根据自己的docker版本执行相应的步骤；</strong></p><p><strong>8.4Docker客户端版本大于1.10的用户 可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&apos;EOF&apos;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://1jdvuba1.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure><h2 id="9-网易加速"><a href="#9-网易加速" class="headerlink" title="9.网易加速"></a>9.网易加速</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&apos;EOF&apos;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;http://hub-mirror.c.163.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><h2 id="阿里云提供的安装方式"><a href="#阿里云提供的安装方式" class="headerlink" title="阿里云提供的安装方式"></a>阿里云提供的安装方式</h2><p><strong>step 1: 安装必要的一些系统工具</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure><p><strong>Step 2: 添加软件源信息</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure><p><strong>Step 3: 更新并安装 Docker-CE</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br></pre></td></tr></table></figure><p><strong>Step 4: 开启Docker服务</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker start</span><br></pre></td></tr></table></figure><p><strong>Step 5: 查看Docker版本</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br><span class="line"></span><br><span class="line">Client:</span><br><span class="line"> Version:17.12.0-ce</span><br><span class="line"> API version:1.35</span><br><span class="line"> Go version:go1.9.2</span><br><span class="line"> Git commit:c97c6d6</span><br><span class="line"> Built:Wed Dec 27 20:10:14 2017</span><br><span class="line"> OS/Arch:linux/amd64</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line"> Engine:</span><br><span class="line">  Version:17.12.0-ce</span><br><span class="line">  API version:1.35 (minimum version 1.12)</span><br><span class="line">  Go version:go1.9.2</span><br><span class="line">  Git commit:c97c6d6</span><br><span class="line">  Built:Wed Dec 27 20:12:46 2017</span><br><span class="line">  OS/Arch:linux/amd64</span><br><span class="line">  Experimental:false</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;系统:Centos 7 64bit&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;直接用yum install docker -y安装的docker版本为1.12，但是docker发展很快，现在都17.12.0了。docker-ce是指docker的社区版&lt;/st
-      
-    
-    </summary>
-    
-      <category term="Docker" scheme="http://code.cookily.cn/categories/Docker/"/>
-    
-      <category term="阿里云加速" scheme="http://code.cookily.cn/categories/Docker/%E9%98%BF%E9%87%8C%E4%BA%91%E5%8A%A0%E9%80%9F/"/>
-    
-      <category term="网易加速" scheme="http://code.cookily.cn/categories/Docker/%E9%98%BF%E9%87%8C%E4%BA%91%E5%8A%A0%E9%80%9F/%E7%BD%91%E6%98%93%E5%8A%A0%E9%80%9F/"/>
-    
-      <category term="Centos 7" scheme="http://code.cookily.cn/categories/Docker/%E9%98%BF%E9%87%8C%E4%BA%91%E5%8A%A0%E9%80%9F/%E7%BD%91%E6%98%93%E5%8A%A0%E9%80%9F/Centos-7/"/>
-    
-    
-      <category term="Docker，Centos 7" scheme="http://code.cookily.cn/tags/Docker%EF%BC%8CCentos-7/"/>
-    
-      <category term="阿里云加速" scheme="http://code.cookily.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E5%8A%A0%E9%80%9F/"/>
-    
-      <category term="网易加速" scheme="http://code.cookily.cn/tags/%E7%BD%91%E6%98%93%E5%8A%A0%E9%80%9F/"/>
-    
-      <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
-    
-      <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
-    
-      <category term="Git" scheme="http://code.cookily.cn/tags/Git/"/>
-    
-      <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
-    
-      <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Centos 7 下 docker 安装MySQL 和使用 内部连接和外部连接</title>
     <link href="http://code.cookily.cn/2018/02/26/qw/"/>
     <id>http://code.cookily.cn/2018/02/26/qw/</id>
@@ -121,6 +76,8 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Docker/MySQL/Centos-7/"/>
     
     
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
+    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -130,8 +87,6 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
-    
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
       <category term="Docker" scheme="http://code.cookily.cn/tags/Docker/"/>
     
@@ -167,6 +122,8 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Nginx/Centos-7/"/>
     
     
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
+    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -176,8 +133,6 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
-    
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
       <category term="Nginx" scheme="http://code.cookily.cn/tags/Nginx/"/>
     
@@ -207,6 +162,8 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/JDK8/Centos-7/"/>
     
     
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
+    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -216,8 +173,6 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
-    
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
       <category term="JDK8" scheme="http://code.cookily.cn/tags/JDK8/"/>
     
@@ -291,8 +246,6 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Docker/Docker-compose/Centos-7/"/>
     
     
-      <category term="Docker，Centos 7" scheme="http://code.cookily.cn/tags/Docker%EF%BC%8CCentos-7/"/>
-    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -302,6 +255,8 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="Docker，Centos 7" scheme="http://code.cookily.cn/tags/Docker%EF%BC%8CCentos-7/"/>
     
       <category term="Docker-compose" scheme="http://code.cookily.cn/tags/Docker-compose/"/>
     
@@ -333,6 +288,8 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Nginx/Keepalived/Centos-7/"/>
     
     
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
+    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -342,8 +299,6 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
-    
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
       <category term="Nginx" scheme="http://code.cookily.cn/tags/Nginx/"/>
     
@@ -375,6 +330,10 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Tomcat8/Centos-7/"/>
     
     
+      <category term="Tomcat8" scheme="http://code.cookily.cn/tags/Tomcat8/"/>
+    
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
+    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -384,10 +343,6 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
-    
-      <category term="Tomcat8" scheme="http://code.cookily.cn/tags/Tomcat8/"/>
-    
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
   </entry>
   
@@ -415,6 +370,8 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Tomcat8-%E9%9B%86%E7%BE%A4/Centos-7/"/>
     
     
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
+    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -424,8 +381,6 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
-    
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
       <category term="Tomcat8 集群" scheme="http://code.cookily.cn/tags/Tomcat8-%E9%9B%86%E7%BE%A4/"/>
     
