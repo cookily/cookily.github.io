@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="樑仔实践学习笔记">
 <meta property="og:description" content="我使用centos7X64最小化安装CentOS-7-x86_64-Minimal-1708 参考：github 1.先获取nexus3镜像1docker pull sonatype/nexus3 2.创建给nexus3使用的数据目录1mkdir -p /nexus-data &amp;amp;&amp;amp; chown -R 200 /nexus-data 3.运行nexus3镜像1docker run -">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-27T12:35:33.490Z">
+<meta property="og:updated_time" content="2018-02-27T12:44:08.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos7下使用Nexus构建Docker私服">
 <meta name="twitter:description" content="我使用centos7X64最小化安装CentOS-7-x86_64-Minimal-1708 参考：github 1.先获取nexus3镜像1docker pull sonatype/nexus3 2.创建给nexus3使用的数据目录1mkdir -p /nexus-data &amp;amp;&amp;amp; chown -R 200 /nexus-data 3.运行nexus3镜像1docker run -">
@@ -162,9 +162,10 @@
 <h2 id="9-push上去"><a href="#9-push上去" class="headerlink" title="9.push上去"></a>9.push上去</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push 172.17.0.2:8888/chenyl/mynginx:v1</span><br></pre></td></tr></table></figure>
 <h2 id="10-pull下来"><a href="#10-pull下来" class="headerlink" title="10.pull下来"></a>10.pull下来</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 172.17.0.2:8888/chenyl/mynginx:v1</span><br></pre></td></tr></table></figure>
 <h2 id="11-搜索私服镜像"><a href="#11-搜索私服镜像" class="headerlink" title="11.搜索私服镜像"></a>11.搜索私服镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search 192.168.1.2:8082/chenyl</span><br></pre></td></tr></table></figure>
+<p><strong>192.168.1.2:8082/chenyl相关的镜像都查出来了</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@docker ~]# docker search 172.17.0.2:8888/chenyl/mynginx</span><br><span class="line">NAME                                DESCRIPTION         STARS               OFFICIAL            AUTOMATED</span><br><span class="line">172.17.0.2:8888/chenyl/mynginx:v1                       0                                       </span><br><span class="line">172.17.0.2:8888/chenyl/mynginx:v2</span><br></pre></td></tr></table></figure></p>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月27日 20:35</p>
+        <p>最后更新： 2018年02月27日 20:44</p>
         <p>原始链接： <a class="post-url" href="/2018/02/27/Centos7下使用Nexu构建Docker私服/" title="Centos7下使用Nexus构建Docker私服">http://code.cookily.cn/2018/02/27/Centos7下使用Nexu构建Docker私服/</a></p>
         <footer>
             <a href="http://code.cookily.cn">

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://code.cookily.cn/"/>
-  <updated>2018-02-27T12:35:33.490Z</updated>
+  <updated>2018-02-27T12:44:08.826Z</updated>
   <id>http://code.cookily.cn/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <title>Centos7下使用Nexus构建Docker私服</title>
     <link href="http://code.cookily.cn/2018/02/27/Centos7%E4%B8%8B%E4%BD%BF%E7%94%A8Nexu%E6%9E%84%E5%BB%BADocker%E7%A7%81%E6%9C%8D/"/>
     <id>http://code.cookily.cn/2018/02/27/Centos7下使用Nexu构建Docker私服/</id>
-    <published>2018-02-27T12:35:33.489Z</published>
-    <updated>2018-02-27T12:35:33.490Z</updated>
+    <published>2018-02-27T12:44:08.825Z</published>
+    <updated>2018-02-27T12:44:08.826Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>我使用centos7X64最小化安装</strong><br><strong>CentOS-7-x86_64-Minimal-1708</strong></p><p><strong>参考：<a href="https://github.com/sonatype/docker-nexus3" target="_blank" rel="noopener">github</a></strong></p><h2 id="1-先获取nexus3镜像"><a href="#1-先获取nexus3镜像" class="headerlink" title="1.先获取nexus3镜像"></a>1.先获取nexus3镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull sonatype/nexus3</span><br></pre></td></tr></table></figure><h2 id="2-创建给nexus3使用的数据目录"><a href="#2-创建给nexus3使用的数据目录" class="headerlink" title="2.创建给nexus3使用的数据目录"></a>2.创建给nexus3使用的数据目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /nexus-data &amp;&amp; chown -R 200 /nexus-data</span><br></pre></td></tr></table></figure><h2 id="3-运行nexus3镜像"><a href="#3-运行nexus3镜像" class="headerlink" title="3.运行nexus3镜像"></a>3.运行nexus3镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8081:8081 --name nexus -v /nexus-data:/nexus-data sonatype/nexus3</span><br></pre></td></tr></table></figure><p><strong>会需要一些时间，耐心等待…</strong></p><h2 id="4-登录Nexus"><a href="#4-登录Nexus" class="headerlink" title="4.登录Nexus"></a>4.登录Nexus</h2><p><strong>默认账号：admin</strong><br><strong>默认密码：admin123</strong><br><strong>我这边是虚拟机：所以地址是 虚拟机ip:8081</strong><br><strong>如果是阿里云：阿里云外网ip：8081，安全组规则里要开放8081</strong></p><h2 id="5-创建docker仓库"><a href="#5-创建docker仓库" class="headerlink" title="5.创建docker仓库"></a>5.创建docker仓库</h2><p><strong>(1)点设置</strong><br><strong>(2)Repository&gt;repositories&gt;Create repository</strong><br><strong>(3)选择docker(hosted)</strong><br><strong>(4)设置仓库名字</strong><br><strong>(5)勾选http，填写端口(比如8888)</strong><br><strong>(6)保存</strong></p><h2 id="6-加–insecure-registry参数"><a href="#6-加–insecure-registry参数" class="headerlink" title="6.加–insecure-registry参数"></a>6.加–insecure-registry参数</h2><p><strong>解决push问题</strong><br><strong>先获取nexus3的id</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure></p><p><strong>再获取nexus的ip</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect --format=&apos;&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&apos; nexus3ID</span><br></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure><p><strong>在ExecStart=/usr/bin/dockerd后面加入 –insecure-registry 上面获取的nexusIP:仓库端口</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd --insecure-registry 172.17.0.2:8888</span><br></pre></td></tr></table></figure></p><p><strong>重启docker服务</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure></p><h2 id="7-登录docker私服"><a href="#7-登录docker私服" class="headerlink" title="7.登录docker私服"></a>7.登录docker私服</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker login 172.17.0.2:8888</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@docker ~]# docker login 172.17.0.2:8888</span><br><span class="line">Username (admin): admin</span><br><span class="line">Password: </span><br><span class="line">Login Succeeded</span><br><span class="line">[root@docker ~]#</span><br></pre></td></tr></table></figure><h2 id="8-打标记"><a href="#8-打标记" class="headerlink" title="8.打标记"></a>8.打标记</h2><p><strong>在上传镜像之前需要先打一个tag，用于版本标记。</strong><br><strong>格式：</strong><br><strong>docker tag <imageid or="" imagename=""> <nexus-hostname>:<repository-port>/<image>:<tag></tag></image></repository-port></nexus-hostname></imageid></strong><br><strong>例如把官方nginx打标记：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag nginx 172.17.0.2:8888/chenyl/mynginx:v1</span><br></pre></td></tr></table></figure></p><h2 id="9-push上去"><a href="#9-push上去" class="headerlink" title="9.push上去"></a>9.push上去</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push 172.17.0.2:8888/chenyl/mynginx:v1</span><br></pre></td></tr></table></figure><h2 id="10-pull下来"><a href="#10-pull下来" class="headerlink" title="10.pull下来"></a>10.pull下来</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 172.17.0.2:8888/chenyl/mynginx:v1</span><br></pre></td></tr></table></figure><h2 id="11-搜索私服镜像"><a href="#11-搜索私服镜像" class="headerlink" title="11.搜索私服镜像"></a>11.搜索私服镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search 192.168.1.2:8082/chenyl</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><strong>我使用centos7X64最小化安装</strong><br><strong>CentOS-7-x86_64-Minimal-1708</strong></p><p><strong>参考：<a href="https://github.com/sonatype/docker-nexus3" target="_blank" rel="noopener">github</a></strong></p><h2 id="1-先获取nexus3镜像"><a href="#1-先获取nexus3镜像" class="headerlink" title="1.先获取nexus3镜像"></a>1.先获取nexus3镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull sonatype/nexus3</span><br></pre></td></tr></table></figure><h2 id="2-创建给nexus3使用的数据目录"><a href="#2-创建给nexus3使用的数据目录" class="headerlink" title="2.创建给nexus3使用的数据目录"></a>2.创建给nexus3使用的数据目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /nexus-data &amp;&amp; chown -R 200 /nexus-data</span><br></pre></td></tr></table></figure><h2 id="3-运行nexus3镜像"><a href="#3-运行nexus3镜像" class="headerlink" title="3.运行nexus3镜像"></a>3.运行nexus3镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8081:8081 --name nexus -v /nexus-data:/nexus-data sonatype/nexus3</span><br></pre></td></tr></table></figure><p><strong>会需要一些时间，耐心等待…</strong></p><h2 id="4-登录Nexus"><a href="#4-登录Nexus" class="headerlink" title="4.登录Nexus"></a>4.登录Nexus</h2><p><strong>默认账号：admin</strong><br><strong>默认密码：admin123</strong><br><strong>我这边是虚拟机：所以地址是 虚拟机ip:8081</strong><br><strong>如果是阿里云：阿里云外网ip：8081，安全组规则里要开放8081</strong></p><h2 id="5-创建docker仓库"><a href="#5-创建docker仓库" class="headerlink" title="5.创建docker仓库"></a>5.创建docker仓库</h2><p><strong>(1)点设置</strong><br><strong>(2)Repository&gt;repositories&gt;Create repository</strong><br><strong>(3)选择docker(hosted)</strong><br><strong>(4)设置仓库名字</strong><br><strong>(5)勾选http，填写端口(比如8888)</strong><br><strong>(6)保存</strong></p><h2 id="6-加–insecure-registry参数"><a href="#6-加–insecure-registry参数" class="headerlink" title="6.加–insecure-registry参数"></a>6.加–insecure-registry参数</h2><p><strong>解决push问题</strong><br><strong>先获取nexus3的id</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure></p><p><strong>再获取nexus的ip</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect --format=&apos;&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&apos; nexus3ID</span><br></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure><p><strong>在ExecStart=/usr/bin/dockerd后面加入 –insecure-registry 上面获取的nexusIP:仓库端口</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd --insecure-registry 172.17.0.2:8888</span><br></pre></td></tr></table></figure></p><p><strong>重启docker服务</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure></p><h2 id="7-登录docker私服"><a href="#7-登录docker私服" class="headerlink" title="7.登录docker私服"></a>7.登录docker私服</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker login 172.17.0.2:8888</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@docker ~]# docker login 172.17.0.2:8888</span><br><span class="line">Username (admin): admin</span><br><span class="line">Password: </span><br><span class="line">Login Succeeded</span><br><span class="line">[root@docker ~]#</span><br></pre></td></tr></table></figure><h2 id="8-打标记"><a href="#8-打标记" class="headerlink" title="8.打标记"></a>8.打标记</h2><p><strong>在上传镜像之前需要先打一个tag，用于版本标记。</strong><br><strong>格式：</strong><br><strong>docker tag <imageid or="" imagename=""> <nexus-hostname>:<repository-port>/<image>:<tag></tag></image></repository-port></nexus-hostname></imageid></strong><br><strong>例如把官方nginx打标记：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag nginx 172.17.0.2:8888/chenyl/mynginx:v1</span><br></pre></td></tr></table></figure></p><h2 id="9-push上去"><a href="#9-push上去" class="headerlink" title="9.push上去"></a>9.push上去</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push 172.17.0.2:8888/chenyl/mynginx:v1</span><br></pre></td></tr></table></figure><h2 id="10-pull下来"><a href="#10-pull下来" class="headerlink" title="10.pull下来"></a>10.pull下来</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 172.17.0.2:8888/chenyl/mynginx:v1</span><br></pre></td></tr></table></figure><h2 id="11-搜索私服镜像"><a href="#11-搜索私服镜像" class="headerlink" title="11.搜索私服镜像"></a>11.搜索私服镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search 192.168.1.2:8082/chenyl</span><br></pre></td></tr></table></figure><p><strong>192.168.1.2:8082/chenyl相关的镜像都查出来了</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@docker ~]# docker search 172.17.0.2:8888/chenyl/mynginx</span><br><span class="line">NAME                                DESCRIPTION         STARS               OFFICIAL            AUTOMATED</span><br><span class="line">172.17.0.2:8888/chenyl/mynginx:v1                       0                                       </span><br><span class="line">172.17.0.2:8888/chenyl/mynginx:v2</span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
@@ -150,6 +150,8 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Nginx/Centos-7/"/>
     
     
+      <category term="Nginx" scheme="http://code.cookily.cn/tags/Nginx/"/>
+    
       <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
@@ -161,8 +163,6 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
-    
-      <category term="Nginx" scheme="http://code.cookily.cn/tags/Nginx/"/>
     
   </entry>
   
@@ -192,6 +192,10 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Nginx/Keepalived/Centos-7/"/>
     
     
+      <category term="Nginx" scheme="http://code.cookily.cn/tags/Nginx/"/>
+    
+      <category term="Keepalived" scheme="http://code.cookily.cn/tags/Keepalived/"/>
+    
       <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
@@ -203,10 +207,6 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
-    
-      <category term="Nginx" scheme="http://code.cookily.cn/tags/Nginx/"/>
-    
-      <category term="Keepalived" scheme="http://code.cookily.cn/tags/Keepalived/"/>
     
   </entry>
   
@@ -235,8 +235,6 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Docker/Tomcat/Centos-7/"/>
     
     
-      <category term="Docker" scheme="http://code.cookily.cn/tags/Docker/"/>
-    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -246,6 +244,8 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="Docker" scheme="http://code.cookily.cn/tags/Docker/"/>
     
       <category term="Tomcat，Centos 7" scheme="http://code.cookily.cn/tags/Tomcat%EF%BC%8CCentos-7/"/>
     
@@ -276,15 +276,7 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Docker/MySQL/Centos-7/"/>
     
     
-      <category term="Docker" scheme="http://code.cookily.cn/tags/Docker/"/>
-    
-      <category term="MySQL" scheme="http://code.cookily.cn/tags/MySQL/"/>
-    
       <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
-    
-      <category term="内部连接" scheme="http://code.cookily.cn/tags/%E5%86%85%E9%83%A8%E8%BF%9E%E6%8E%A5/"/>
-    
-      <category term="外部连接" scheme="http://code.cookily.cn/tags/%E5%A4%96%E9%83%A8%E8%BF%9E%E6%8E%A5/"/>
     
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
@@ -295,6 +287,14 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="Docker" scheme="http://code.cookily.cn/tags/Docker/"/>
+    
+      <category term="MySQL" scheme="http://code.cookily.cn/tags/MySQL/"/>
+    
+      <category term="内部连接" scheme="http://code.cookily.cn/tags/%E5%86%85%E9%83%A8%E8%BF%9E%E6%8E%A5/"/>
+    
+      <category term="外部连接" scheme="http://code.cookily.cn/tags/%E5%A4%96%E9%83%A8%E8%BF%9E%E6%8E%A5/"/>
     
   </entry>
   
