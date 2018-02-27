@@ -78,6 +78,12 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Docker/%E9%98%BF%E9%87%8C%E4%BA%91%E5%8A%A0%E9%80%9F/%E7%BD%91%E6%98%93%E5%8A%A0%E9%80%9F/Centos-7/"/>
     
     
+      <category term="Docker，Centos 7" scheme="http://code.cookily.cn/tags/Docker%EF%BC%8CCentos-7/"/>
+    
+      <category term="阿里云加速" scheme="http://code.cookily.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E5%8A%A0%E9%80%9F/"/>
+    
+      <category term="网易加速" scheme="http://code.cookily.cn/tags/%E7%BD%91%E6%98%93%E5%8A%A0%E9%80%9F/"/>
+    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -87,12 +93,6 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
-    
-      <category term="Docker，Centos 7" scheme="http://code.cookily.cn/tags/Docker%EF%BC%8CCentos-7/"/>
-    
-      <category term="阿里云加速" scheme="http://code.cookily.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E5%8A%A0%E9%80%9F/"/>
-    
-      <category term="网易加速" scheme="http://code.cookily.cn/tags/%E7%BD%91%E6%98%93%E5%8A%A0%E9%80%9F/"/>
     
   </entry>
   
@@ -121,8 +121,6 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Docker/MySQL/Centos-7/"/>
     
     
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
-    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -132,6 +130,8 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
       <category term="Docker" scheme="http://code.cookily.cn/tags/Docker/"/>
     
@@ -167,8 +167,6 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Nginx/Centos-7/"/>
     
     
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
-    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -178,6 +176,8 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
       <category term="Nginx" scheme="http://code.cookily.cn/tags/Nginx/"/>
     
@@ -207,8 +207,6 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/JDK8/Centos-7/"/>
     
     
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
-    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -218,6 +216,8 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
       <category term="JDK8" scheme="http://code.cookily.cn/tags/JDK8/"/>
     
@@ -291,6 +291,8 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Docker/Docker-compose/Centos-7/"/>
     
     
+      <category term="Docker，Centos 7" scheme="http://code.cookily.cn/tags/Docker%EF%BC%8CCentos-7/"/>
+    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -300,8 +302,6 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
-    
-      <category term="Docker，Centos 7" scheme="http://code.cookily.cn/tags/Docker%EF%BC%8CCentos-7/"/>
     
       <category term="Docker-compose" scheme="http://code.cookily.cn/tags/Docker-compose/"/>
     
@@ -333,8 +333,6 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Nginx/Keepalived/Centos-7/"/>
     
     
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
-    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -344,6 +342,8 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
       <category term="Nginx" scheme="http://code.cookily.cn/tags/Nginx/"/>
     
@@ -375,10 +375,6 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Tomcat8/Centos-7/"/>
     
     
-      <category term="Tomcat8" scheme="http://code.cookily.cn/tags/Tomcat8/"/>
-    
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
-    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -388,6 +384,10 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="Tomcat8" scheme="http://code.cookily.cn/tags/Tomcat8/"/>
+    
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
   </entry>
   
@@ -415,8 +415,6 @@
       <category term="Centos 7" scheme="http://code.cookily.cn/categories/Tomcat8-%E9%9B%86%E7%BE%A4/Centos-7/"/>
     
     
-      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
-    
       <category term="Hexo" scheme="http://code.cookily.cn/tags/Hexo/"/>
     
       <category term="IntelliJ IDEA" scheme="http://code.cookily.cn/tags/IntelliJ-IDEA/"/>
@@ -426,6 +424,8 @@
       <category term="Github" scheme="http://code.cookily.cn/tags/Github/"/>
     
       <category term="Node.js" scheme="http://code.cookily.cn/tags/Node-js/"/>
+    
+      <category term="Centos 7" scheme="http://code.cookily.cn/tags/Centos-7/"/>
     
       <category term="Tomcat8 集群" scheme="http://code.cookily.cn/tags/Tomcat8-%E9%9B%86%E7%BE%A4/"/>
     

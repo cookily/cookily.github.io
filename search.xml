@@ -52,6 +52,12 @@
       
         <tags>
             
+            <tag> Docker，Centos 7 </tag>
+            
+            <tag> 阿里云加速 </tag>
+            
+            <tag> 网易加速 </tag>
+            
             <tag> Hexo </tag>
             
             <tag> IntelliJ IDEA </tag>
@@ -61,12 +67,6 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
-            
-            <tag> Docker，Centos 7 </tag>
-            
-            <tag> 阿里云加速 </tag>
-            
-            <tag> 网易加速 </tag>
             
         </tags>
       
@@ -90,8 +90,6 @@
       
         <tags>
             
-            <tag> Centos 7 </tag>
-            
             <tag> Hexo </tag>
             
             <tag> IntelliJ IDEA </tag>
@@ -101,6 +99,8 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
+            
+            <tag> Centos 7 </tag>
             
             <tag> Docker </tag>
             
@@ -130,8 +130,6 @@
       
         <tags>
             
-            <tag> Centos 7 </tag>
-            
             <tag> Hexo </tag>
             
             <tag> IntelliJ IDEA </tag>
@@ -141,6 +139,8 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
+            
+            <tag> Centos 7 </tag>
             
             <tag> Nginx </tag>
             
@@ -164,8 +164,6 @@
       
         <tags>
             
-            <tag> Centos 7 </tag>
-            
             <tag> Hexo </tag>
             
             <tag> IntelliJ IDEA </tag>
@@ -175,6 +173,8 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
+            
+            <tag> Centos 7 </tag>
             
             <tag> JDK8 </tag>
             
@@ -236,6 +236,8 @@
       
         <tags>
             
+            <tag> Docker，Centos 7 </tag>
+            
             <tag> Hexo </tag>
             
             <tag> IntelliJ IDEA </tag>
@@ -245,8 +247,6 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
-            
-            <tag> Docker，Centos 7 </tag>
             
             <tag> Docker-compose </tag>
             
@@ -272,8 +272,6 @@
       
         <tags>
             
-            <tag> Centos 7 </tag>
-            
             <tag> Hexo </tag>
             
             <tag> IntelliJ IDEA </tag>
@@ -283,6 +281,8 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
+            
+            <tag> Centos 7 </tag>
             
             <tag> Nginx </tag>
             
@@ -308,10 +308,6 @@
       
         <tags>
             
-            <tag> Tomcat8 </tag>
-            
-            <tag> Centos 7 </tag>
-            
             <tag> Hexo </tag>
             
             <tag> IntelliJ IDEA </tag>
@@ -321,6 +317,10 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
+            
+            <tag> Tomcat8 </tag>
+            
+            <tag> Centos 7 </tag>
             
         </tags>
       
@@ -342,8 +342,6 @@
       
         <tags>
             
-            <tag> Centos 7 </tag>
-            
             <tag> Hexo </tag>
             
             <tag> IntelliJ IDEA </tag>
@@ -353,6 +351,8 @@
             <tag> Github </tag>
             
             <tag> Node.js </tag>
+            
+            <tag> Centos 7 </tag>
             
             <tag> Tomcat8 集群 </tag>
             
